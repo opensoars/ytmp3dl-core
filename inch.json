@@ -1,0 +1,10 @@
+{
+  "files": {
+    "included": [
+      "src/*"
+    ],
+    "excluded": [
+      "test", "doc", "node_modules", "scripts", "coverage", "node_modules", "dist"
+    ]
+  }
+}
