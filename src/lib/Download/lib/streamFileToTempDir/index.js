@@ -10,7 +10,6 @@ module.exports = function streamFileToTempDir(args) {
     let progress_interval;
 
     function endErr(err_msg, err) {
-      console.log(err);
       clearInterval(progress_interval);
       return reject(err_msg);
     }
