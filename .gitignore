@@ -1,4 +1,4 @@
 node_modules/
 coverage/
-temp/*
-done/*
+temp/
+done/
