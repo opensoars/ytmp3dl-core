@@ -9,6 +9,7 @@ const is = require('is');
 let Download = class Download {
   constructor(args) {
     this.args = ens.obj(args);
+    //this.initPub();
   }
   writeFile(fn, content, silent) {
     if (!silent) console.log('writeFile', fn);
@@ -32,16 +33,41 @@ let Download = class Download {
   static copyAndClean(args) {
     fs.readFile(args.result_file_location, function (err, file) {
       fs.writeFile(args.dir + '/' + args.file_name, file, function (err) {
-        if (err) console.log(err);else console.log('write');
+        if (err) throw err;
       });
       fs.unlink(args.result_file_location, function (err) {
-        if (err) console.log(err);else console.log('unlink mp3');
+        if (err) throw err;
       });
       fs.unlink(args.result_file_location.replace(args.file_ext, ''), function (err) {
-        if (err) console.log(err);else console.log('unlink mp4');
+        if (err) throw err;
       });
     });
   }
+};
+
+Download.prototype.initPub = function () {
+  this.pub = {
+    d: {}
+  };
+  this.pub.get = function (key) {
+    if (!key) return this.d;
+    return this.d[key];
+  };
+  this.pub.set = function () {
+    if (is.object(arguments[0])) for (let key in arguments[0]) if (arguments[0].hasOwnProperty(key)) this.d[key] = arguments[0][key];
+    if (is.string(arguments[0]) && arguments[1]) this.d[arguments[0]] = arguments[1];
+
+    return this;
+  };
+  this.pub.del = function () {
+    var _this = this;
+
+    if (is.string(arguments[0])) delete this.d[arguments[0]];else if (is.array(arguments[0])) arguments[0].forEach(function (el) {
+      return delete _this.d[el];
+    });
+
+    return this;
+  };
 };
 
 ['start', 'validateArguments', 'getUrlFromArguments', 'validateUrl', 'getSourceFromUrl', 'validateSource', 'getYtPlayerConfigFromSource', 'getVideoInfoFromYtplayerConfig', 'getFmtsFromYtplayerConfig', 'getRankedFmts', 'getWorkingUrl', 'streamFileToTempDir', 'convertFile', 'makeStringFileSafe'].forEach(function (module) {

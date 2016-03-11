@@ -11,12 +11,16 @@ module.exports = function streamFileToTempDir(args) {
 
     let progress_interval;
 
-    function endErr(err) {
+    function endErr(err_msg, err) {
       clearInterval(progress_interval);
-      return reject(err);
+      reject(err_msg);
+    }
+    function end() {
+      clearInterval(progress_interval);
+      resolve(full_loc);
     }
     let writeStream = fs.createWriteStream(full_loc).on('error', function (err) {
-      return endErr('Stream error');
+      return endErr('Stream error', err);
     });
 
     https.get(args.working_url, function (res) {
@@ -29,10 +33,7 @@ module.exports = function streamFileToTempDir(args) {
         });
       }, 500);
 
-      res.on('end', function () {
-        clearInterval(progress_interval);
-        resolve(full_loc);
-      });
+      res.on('end', end);
     }).on('error', function (err) {
       return endErr('https.get error');
     });

@@ -11,7 +11,11 @@ module.exports = function streamFileToTempDir(args) {
 
     function endErr(err_msg, err) {
       clearInterval(progress_interval);
-      return reject(err_msg);
+      reject(err_msg);
+    }
+    function end() {
+      clearInterval(progress_interval);
+      resolve(full_loc);
     }
     let writeStream = fs.createWriteStream(full_loc)
       .on('error', (err) => endErr('Stream error', err));
@@ -26,10 +30,7 @@ module.exports = function streamFileToTempDir(args) {
         });
       }, 500);
 
-      res.on('end', () => {
-        clearInterval(progress_interval);
-        resolve(full_loc);
-      });
+      res.on('end', end);
     }).on('error', (err) => endErr('https.get error'));
   });
 };
