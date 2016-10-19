@@ -1,4 +1,4 @@
-# ytmp3dl-core
+# ytmp3dl-core (WIP)
 
 Async YouTube downloader. Utilizing ES6 and ES7 features.
 
