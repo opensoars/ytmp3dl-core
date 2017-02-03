@@ -5,7 +5,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 const util = require('util');
 const EventEmitter = require('events').EventEmitter;
 const https = require('https');
-
+const http = require('http');
 const ens = require('ens');
 const is = require('is');
 
@@ -22,7 +22,13 @@ class SignatureDecipherer {
     return new Promise(function (resolve, reject) {
       if (!is.string(url)) return reject('is.string(url)');
 
-      https.get(url, function (res) {
+
+      const options = {
+        hostname: 'www.youtube.com',
+        path: url.replace('https://youtube.com', '')
+      };
+
+      https.get(options, function (res) {
         let source = '';
         res.on('data', function (chunk) {
           return source += chunk;
@@ -95,8 +101,17 @@ SignatureDecipherer.prototype.start = function () {
     try {
       let args = yield t.validateArguments(t.args);
 
-      let jsplayer_url = 'https:' + args.ytplayer_config.assets.js;
+
+/*      let jsplayer_url = 'https://';
+      if (args.ytplayer_config.assets.js.indexOf('youtube') === -1)
+        jsplayer_url += 'youtube.com';
+      jsplayer_url += args.*/
+
+
+      let jsplayer_url = 'https://youtube.com' + args.ytplayer_config.assets.js;
+
       let unvalidated_jsplayer = yield t.getJsPlayerFromUrl(jsplayer_url);
+
       let jsplayer = yield t.validateJsPlayer(unvalidated_jsplayer);
       let decipher_name = yield t.getDecipherNameFromJsPlayer(jsplayer, t.regexp.decipher_name);
       let decipher_argument = yield t.getDecipherArgumentFromJsPlayer(jsplayer, new RegExp(decipher_name + t.regexp.decipher_argument));
@@ -121,11 +136,20 @@ SignatureDecipherer.prototype.start = function () {
 }();
 
 SignatureDecipherer.prototype.regexp = {
+
+  /**
+   * New?                                                 (Gm)
+   * f.sig?k.set("signature",f.sig):f.s&&k.set("signature",Gm(f.s))
+   * (Gm)=function((a)){(a=a.split("");Fm.uJ(a,2);Fm.iX(a,64);Fm.QS(a,49);Fm.uJ(a,3);return a.join(""))};
+   */
+
   /**
    * Example: (the function call expression gets captured, in this case: sr)
    * sig||e.s){var h = e.sig||sr(
    */
-  decipher_name: /sig\|\|.+?\..+?\)\{var.+?\|\|(.+?)\(/,
+  //decipher_name: /sig\|\|.+?\..+?\)\{var.+?\|\|(.+?)\(/,
+
+  decipher_name: /sig\?.+?\&\&.+?\,(.+?)\(/,
   /**
    * Captures the first argument name of the decipher function
    * Gets prefixed with decipher name (in this case sr)

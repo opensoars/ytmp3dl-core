@@ -15,6 +15,23 @@ Async YouTube downloader. Utilizing ES6 and ES7 features.
 
 ---
 
+New deciphering. To be implemented
+
+```
+  /**
+   * New?                                                 (Gm)
+   * f.sig?k.set("signature",f.sig):f.s&&k.set("signature",Gm(f.s))
+   * (Gm)=function((a)){(a=a.split("");Fm.uJ(a,2);Fm.iX(a,64);Fm.QS(a,49);Fm.uJ(a,3);return a.join(""))};
+   */
+
+  /**
+   * Example: (the function call expression gets captured, in this case: sr)
+   * sig||e.s){var h = e.sig||sr(
+   */
+  decipher_name1: /sig\|\|.+?\..+?\)\{var.+?\|\|(.+?)\(/,
+  decipher_name2: /sig\?.+?\&\&.+?\,(.+?)\(/,
+```
+
 # Install
 
 `npm install ytmp3dl-core`
