@@ -12,16 +12,23 @@ module.exports = function convertFile(args) {
       '-f', 'mp3', new_file_name
     ]);
 
-    let total_duration_secs;
 
-    ffmpeg.stderr.on('data', data => {
+
+    let total_duration_secs;
+    console.log(ffmpeg.stderr);
+    ffmpeg.stderr.setEncoding('utf8');
+    ffmpeg.stderr.on('data', data => {  
+      //console.log(data.toString());
       if (data.indexOf('Overwrite ? [y/N]') !== -1) ffmpeg.stdin.write('y\n');
       else if (data.indexOf('Duration: ') !== -1) {
         let duration_matches = args.duration_re.exec(data.toString());
-        if (duration_matches[1]) {
+        if (duration_matches instanceof Array && duration_matches[1]) {
           total_duration_secs = ffmpegTimeToSec(duration_matches[1]);
         }
         else {
+          console.log('heloooooo\n\n\n\n\n');
+          //console.log(data.toString());
+          console.log('\n\n\n\n\n');
           reject('no duration_matches[1], could not extract total file time');
         }
       }
