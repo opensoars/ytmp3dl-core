@@ -31,3 +31,21 @@ new (require('ytmp3dl-core').Download)({ v: 'NnTg4vzli5s' })
   .on('succes', result => console.log('succes', result))
   .callMethod('start'); 
 ```
+
+# Develop
+
+Run `npm run gulp-babel` to compile the source code. Run `npm run gulp-watch` to run the `gulp-babel` npm command on file change. Of course `gulp babel` and `gulp watch` can be used when gulp is locally installed.
+
+
+# Contributing
+
+1. Fork
+2. Create your feature branch (git checkout -b my-epic-feature)
+3. Commit your changes (git commit -am 'Add epic feature :)')
+4. Push to the branch (git push origin my-epic-feature)
+5. Create new Pull Request
+
+
+# Copyright
+
+Copyright (c) 2017 Sam @ Opensoars. See [LICENSE](https://github.com/opensoars/ezreq/blob/master/LICENSE) for details.
