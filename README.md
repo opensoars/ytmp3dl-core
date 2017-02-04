@@ -19,6 +19,12 @@ Async YouTube downloader. Utilizing ES6 and ES7 features.
 
 `npm install ytmp3dl-core`
 
+# Requirements
+
+## ffmpeg
+
+`sudo apt-get install ffmpeg`.
+
 
 # Use
 
@@ -31,6 +37,7 @@ new (require('ytmp3dl-core').Download)({ v: 'NnTg4vzli5s' })
   .on('succes', result => console.log('succes', result))
   .callMethod('start'); 
 ```
+
 
 # Develop
 

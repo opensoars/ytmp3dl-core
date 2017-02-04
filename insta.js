@@ -13,8 +13,6 @@ let vs = [
   'd0TX75q6Y1M'
 ];
 
-
-
 vs.forEach(v => {
   let dl = new ytdl.Download({ v });
 
