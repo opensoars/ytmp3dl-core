@@ -27,7 +27,12 @@ class SignatureDecipherer {
     return new Promise((resolve, reject) => {
       if (!is.string(url)) return reject('is.string(url)');
 
-      https.get(url, res => {
+      const options = {
+         hostname: 'www.youtube.com',
+         path: url.replace('https://youtube.com', '')
+       };
+ 
+       https.get(options, function (res) {
         let source = '';
         res.on('data', chunk => source += chunk);
         res.on('end', () => resolve(source));
@@ -46,13 +51,15 @@ class SignatureDecipherer {
         resolve(jsplayer);
     });
   }
-  getDecipherNameFromJsPlayer(jsplayer, decipher_function_name_re) {
+  getDecipherNameFromJsPlayer(jsplayer, decipher_function_name_res) {
     return new Promise((resolve, reject) => {
-      let matches = decipher_function_name_re.exec(jsplayer);
-      if (is.array(matches) && matches[1])
-        resolve(matches[1]);
-      else
-        reject('@name is.array(matches) && matches[1] not passed');
+      for (let i = 0; i < decipher_function_name_res.length; i++) {
+        let re = decipher_function_name_res[i];
+        let matches = re.exec(jsplayer);
+        if (is.array(matches) && matches[1])
+          return resolve(matches[1]);
+      }
+      reject('@name could not get name from js player');
     });
   }
   getDecipherArgumentFromJsPlayer(jsplayer, decipher_argument_re) {
@@ -119,12 +126,11 @@ SignatureDecipherer.prototype.start = async function start() {
   let t = this;
   try {
     let args = await t.validateArguments(t.args);
-
-    let jsplayer_url = 'https:' + args.ytplayer_config.assets.js;
+    let jsplayer_url = 'https://youtube.com' + args.ytplayer_config.assets.js;
     let unvalidated_jsplayer = await t.getJsPlayerFromUrl(jsplayer_url);
     let jsplayer = await t.validateJsPlayer(unvalidated_jsplayer);
     let decipher_name = await t.getDecipherNameFromJsPlayer(
-      jsplayer, t.regexp.decipher_name
+      jsplayer, t.regexp.decipher_names
     );
     let decipher_argument = await t.getDecipherArgumentFromJsPlayer(
       jsplayer,
@@ -161,7 +167,13 @@ SignatureDecipherer.prototype.regexp = {
    * Example: (the function call expression gets captured, in this case: sr)
    * sig||e.s){var h = e.sig||sr(
    */
-  decipher_name: /sig\|\|.+?\..+?\)\{var.+?\|\|(.+?)\(/,
+  //decipher_name: ,
+
+  decipher_names: [
+    /sig\?.+?\&\&.+?\,(.+?)\(/,
+    /sig\|\|.+?\..+?\)\{var.+?\|\|(.+?)\(/
+  ],
+
   /**
    * Captures the first argument name of the decipher function
    * Gets prefixed with decipher name (in this case sr)

@@ -21,7 +21,7 @@ let Download = class Download {
     });
   }
   callMethod(method) {
-    if (!is.string(method)) throw new Error('callMethod expected method name string as 1st arg');else if (!this[method]) throw new Error(`callMethod could not call method ${ method }`);
+    if (!is.string(method)) throw new Error('callMethod expected method name string as 1st arg');else if (!this[method]) throw new Error(`callMethod could not call method ${method}`);
     this.emit('callMethod', method);
 
     for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {

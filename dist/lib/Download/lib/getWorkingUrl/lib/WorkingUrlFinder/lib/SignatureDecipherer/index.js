@@ -1,11 +1,11 @@
 "use strict";
 
-function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { return step("next", value); }, function (err) { return step("throw", err); }); } } return step("next"); }); }; }
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
 const util = require('util');
 const EventEmitter = require('events').EventEmitter;
 const https = require('https');
-const http = require('http');
+
 const ens = require('ens');
 const is = require('is');
 
@@ -21,7 +21,6 @@ class SignatureDecipherer {
   getJsPlayerFromUrl(url) {
     return new Promise(function (resolve, reject) {
       if (!is.string(url)) return reject('is.string(url)');
-
 
       const options = {
         hostname: 'www.youtube.com',
@@ -46,10 +45,14 @@ class SignatureDecipherer {
       if (!is.string(jsplayer)) reject('!is.string(jsplayer)');else if (jsplayer.length < 10000) reject('jsplayer.length < 10000');else resolve(jsplayer);
     });
   }
-  getDecipherNameFromJsPlayer(jsplayer, decipher_function_name_re) {
+  getDecipherNameFromJsPlayer(jsplayer, decipher_function_name_res) {
     return new Promise(function (resolve, reject) {
-      let matches = decipher_function_name_re.exec(jsplayer);
-      if (is.array(matches) && matches[1]) resolve(matches[1]);else reject('@name is.array(matches) && matches[1] not passed');
+      for (let i = 0; i < decipher_function_name_res.length; i++) {
+        let re = decipher_function_name_res[i];
+        let matches = re.exec(jsplayer);
+        if (is.array(matches) && matches[1]) return resolve(matches[1]);
+      }
+      reject('@name could not get name from js player');
     });
   }
   getDecipherArgumentFromJsPlayer(jsplayer, decipher_argument_re) {
@@ -79,7 +82,7 @@ class SignatureDecipherer {
   }
   makeDecipherFunction(args) {
     return new Promise(function (resolve, reject) {
-      let decipherFunction = new Function([args.decipher_argument], `var ${ args.decipher_helpers_name }={${ args.decipher_helpers_body }};` + `${ args.decipher_body }`);
+      let decipherFunction = new Function([args.decipher_argument], `var ${args.decipher_helpers_name}={${args.decipher_helpers_body}};` + `${args.decipher_body}`);
       resolve(decipherFunction);
     });
   }
@@ -96,24 +99,14 @@ class SignatureDecipherer {
 }
 
 SignatureDecipherer.prototype.start = function () {
-  var ref = _asyncToGenerator(function* () {
+  var _ref = _asyncToGenerator(function* () {
     let t = this;
     try {
       let args = yield t.validateArguments(t.args);
-
-
-/*      let jsplayer_url = 'https://';
-      if (args.ytplayer_config.assets.js.indexOf('youtube') === -1)
-        jsplayer_url += 'youtube.com';
-      jsplayer_url += args.*/
-
-
       let jsplayer_url = 'https://youtube.com' + args.ytplayer_config.assets.js;
-
       let unvalidated_jsplayer = yield t.getJsPlayerFromUrl(jsplayer_url);
-
       let jsplayer = yield t.validateJsPlayer(unvalidated_jsplayer);
-      let decipher_name = yield t.getDecipherNameFromJsPlayer(jsplayer, t.regexp.decipher_name);
+      let decipher_name = yield t.getDecipherNameFromJsPlayer(jsplayer, t.regexp.decipher_names);
       let decipher_argument = yield t.getDecipherArgumentFromJsPlayer(jsplayer, new RegExp(decipher_name + t.regexp.decipher_argument));
       let decipher_body = yield t.getDecipherBodyFromJsPlayer(jsplayer, new RegExp(decipher_name + t.regexp.decipher_body));
       let decipher_helpers_name = yield t.getDecipherHelpersNameFromBody(decipher_body, t.regexp.decipher_helpers_name);
@@ -130,26 +123,22 @@ SignatureDecipherer.prototype.start = function () {
     }
   });
 
-  return function start() {
-    return ref.apply(this, arguments);
-  };
+  function start() {
+    return _ref.apply(this, arguments);
+  }
+
+  return start;
 }();
 
 SignatureDecipherer.prototype.regexp = {
-
-  /**
-   * New?                                                 (Gm)
-   * f.sig?k.set("signature",f.sig):f.s&&k.set("signature",Gm(f.s))
-   * (Gm)=function((a)){(a=a.split("");Fm.uJ(a,2);Fm.iX(a,64);Fm.QS(a,49);Fm.uJ(a,3);return a.join(""))};
-   */
-
   /**
    * Example: (the function call expression gets captured, in this case: sr)
    * sig||e.s){var h = e.sig||sr(
    */
-  //decipher_name: /sig\|\|.+?\..+?\)\{var.+?\|\|(.+?)\(/,
+  //decipher_name: ,
 
-  decipher_name: /sig\?.+?\&\&.+?\,(.+?)\(/,
+  decipher_names: [/sig\?.+?\&\&.+?\,(.+?)\(/, /sig\|\|.+?\..+?\)\{var.+?\|\|(.+?)\(/],
+
   /**
    * Captures the first argument name of the decipher function
    * Gets prefixed with decipher name (in this case sr)
