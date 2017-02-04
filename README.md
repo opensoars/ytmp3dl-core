@@ -15,26 +15,6 @@ Async YouTube downloader. Utilizing ES6 and ES7 features.
 
 ---
 
-New deciphering. To be implemented in src, in a way that [Download/getWorkingUrl/WorkingUrlFinder/SignatureDecipherer](https://github.com/opensoars/ytmp3dl-core/blob/master/src/lib/Download/lib/getWorkingUrl/lib/WorkingUrlFinder/lib/SignatureDecipherer/index.js) will try arrays of regexes . Dist hotfix:
-
-```js
-  /**
-   *                                                      (..)
-   * f.sig?k.set("signature",f.sig):f.s&&k.set("signature",Gm(f.s))
-   * (Gm)=function(a){a=a.split("");Fm.uJ(a,2);Fm.iX(a,64);Fm.QS(a,49);Fm.uJ(a,3);return a.join("")};
-   * (  )         (.)(.............................................................................)
-   */
-
-  /**
-   * Example: (the function call expression gets captured, in this case: sr)
-   * sig||e.s){var h = e.sig||sr(
-   */
-  // Old
-  //decipher_name: /sig\|\|.+?\..+?\)\{var.+?\|\|(.+?)\(/,
-  // New
-  decipher_name: /sig\?.+?\&\&.+?\,(.+?)\(/,
-```
-
 # Install
 
 `npm install ytmp3dl-core`
