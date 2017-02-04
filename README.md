@@ -46,3 +46,6 @@ Run `npm run gulp-babel` to compile the source code. Run `npm run gulp-watch` to
 5. Create new Pull Request
 
 
+# Copyright
+
+Copyright (c) 2017 Sam @ Opensoars. See [LICENSE](https://github.com/opensoars/ezreq/blob/master/LICENSE) for details.
