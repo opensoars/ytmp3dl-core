@@ -9,8 +9,6 @@ Async YouTube downloader. Utilizing ES6 and ES7 features.
 [![Inline docs](http://inch-ci.org/github/opensoars/ytmp3dl-core.svg?branch=master)](http://inch-ci.org/github/opensoars/ytmp3dl-core)
 [![Codacy Badge](https://api.codacy.com/project/badge/f3e64501763645b9aa483bf83a4dd1d5)](https://www.codacy.com/app/sam_1700/ytmp3dl-core)
 [![Code Climate](https://codeclimate.com/github/opensoars/ytmp3dl-core/badges/gpa.svg)](https://codeclimate.com/github/opensoars/ytmp3dl-core)
-[![Dependency Status](https://david-dm.org/opensoars/ytmp3dl-core.svg)](https://david-dm.org/opensoars/ytmp3dl-core)
-[![devDependency Status](https://david-dm.org/opensoars/ytmp3dl-core/dev-status.svg)](https://david-dm.org/opensoars/ytmp3dl-core#info=devDependencies)
 -->
 
 ---
