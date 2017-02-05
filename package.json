@@ -33,7 +33,7 @@
     "type": "git",
     "url": "https://github.com/opensoars/ytmp3dl-core"
   },
-  "keywords": ["youtube", "mp3"],
+  "keywords": ["youtube", "mp3", "audio", "download"],
   "readmeFilename": "README.md",
   "license": "MIT"
 }
