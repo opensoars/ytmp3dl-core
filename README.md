@@ -13,9 +13,11 @@ Async YouTube downloader. Utilizing ES6 and ES7 features.
 
 ---
 
+
 # Install
 
 `npm install ytmp3dl-core`
+
 
 # Requirements
 
