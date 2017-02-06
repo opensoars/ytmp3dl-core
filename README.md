@@ -39,6 +39,11 @@ new (require('ytmp3dl-core').Download)({ v: 'NnTg4vzli5s' })
 ```
 
 
+# Up next
+
+Front-end features. Which will be maintained in a new project repo.. More info soon.
+
+
 # Develop
 
 Run `npm run gulp-babel` to compile the source code. Run `npm run gulp-watch` to run the `gulp-babel` npm command on file change. Of course `gulp babel` and `gulp watch` can be used when gulp is locally installed.
