@@ -1,6 +1,6 @@
 # ytmp3dl-core (WIP)
 
-Async YouTube downloader. Utilizing ES6 and ES7 features.
+Async YouTube downloader. Utilizing ES6 and ES7 features. ( <3 async await )
 
 [![Build Status](https://travis-ci.org/opensoars/ytmp3dl-core.svg?branch=master)](https://travis-ci.org/opensoars/ytmp3dl-core)
 
