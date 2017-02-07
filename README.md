@@ -43,6 +43,8 @@ new (require('ytmp3dl-core').Download)({ v: 'NnTg4vzli5s' })
 
 Front-end features. Which will be maintained in a new project repo.. More info soon.
 
+Download retries, where will they be handled?
+
 
 # Develop
 
