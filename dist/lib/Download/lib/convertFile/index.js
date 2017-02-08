@@ -16,6 +16,7 @@ module.exports = function convertFile(args) {
     ffmpeg.stderr.setEncoding('utf8');
     ffmpeg.stderr.on('data', function (data) {
       //console.log(data.toString());
+      // Let's chech for the byte length instead of specific duration: string
       if (data.indexOf('Overwrite ? [y/N]') !== -1) ffmpeg.stdin.write('y\n');else if (data.indexOf('Duration: ') !== -1) {
         let duration_matches = args.duration_re.exec(data.toString());
         if (duration_matches instanceof Array && duration_matches[1]) {
