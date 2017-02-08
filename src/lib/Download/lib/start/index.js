@@ -42,7 +42,8 @@ module.exports = async function start() {
 
     this.emit('success', {
       file_location,
-      file_name: file_safe_video_title
+      file_name: file_safe_video_title,
+      file_ext: t.file_ext
     });
   }
   catch (err) {

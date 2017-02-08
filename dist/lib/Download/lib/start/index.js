@@ -36,7 +36,8 @@ module.exports = function () {
 
       this.emit('success', {
         file_location,
-        file_name: file_safe_video_title
+        file_name: file_safe_video_title,
+        file_ext: t.file_ext
       });
     } catch (err) {
       t.emit('error', err);
