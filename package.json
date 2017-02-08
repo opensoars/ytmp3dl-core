@@ -1,7 +1,7 @@
 {
   "name": "ytmp3dl-core",
   "description": "Youtube mp3 downloader - core module",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "author": "opensoars",
   "scripts": {
     "test": "gulp babel && node dist/index.js",
@@ -33,7 +33,7 @@
     "type": "git",
     "url": "https://github.com/opensoars/ytmp3dl-core"
   },
-  "keywords": [],
+  "keywords": ["youtube", "mp3", "audio", "download"],
   "readmeFilename": "README.md",
   "license": "MIT"
 }
