@@ -21,9 +21,10 @@ Async YouTube downloader. Utilizing ES6 and ES7 features. ( <3 async await )
 
 # Requirements
 
-## ffmpeg
+- Node.js + NPM
+- ffmpeg
 
-`sudo apt-get install ffmpeg`.
+
 
 
 # Use
