@@ -2,6 +2,8 @@
 
 Async YouTube downloader. Utilizing ES6 and ES7 features. ( <3 async await )
 
+This project will be rewritten to use modern features available in recent Node.js releases. Main functionality and project architecture will stay roughly the same. The development of the new `ytmp3dl-core` project will happen simultaneously with the upgrade of the `ytmp3dl-server` project.
+
 [![Build Status](https://travis-ci.org/opensoars/ytmp3dl-core.svg?branch=master)](https://travis-ci.org/opensoars/ytmp3dl-core)
 
 <!---
