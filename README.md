@@ -64,4 +64,4 @@ Run `npm run gulp-babel` to compile the source code. Run `npm run gulp-watch` to
 
 # Copyright
 
-Copyright (c) 2017 Sam @ Opensoars. See [LICENSE](https://github.com/opensoars/ezreq/blob/master/LICENSE) for details.
+Copyright (c) 2019 Sam @ Opensoars. See [LICENSE](https://github.com/opensoars/ezreq/blob/master/LICENSE) for details.
