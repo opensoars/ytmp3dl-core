@@ -23,7 +23,7 @@ This project will be rewritten to use modern features available in recent Node.j
 
 # Requirements
 
-- Node.js + NPM
+- Node.js (>=5.6.0) + NPM
 - ffmpeg
 
 
