@@ -45,7 +45,9 @@ vs.forEach(v => {
   }); 
 
   dl.on('stream-progress', (o) => {
-    console.log('stream-progress', o);
+    console.log('stream-progress', {
+       ...o, 
+       '%': Math.ceil(o.bytesWritten / (o['content-length'] / 100) * 100) / 100})
   });
 
   dl.on('conversion-progress', (o) => {
