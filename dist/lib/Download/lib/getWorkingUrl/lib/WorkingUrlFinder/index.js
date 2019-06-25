@@ -61,19 +61,29 @@ WorkingUrlFinder.prototype.start = function () {
       let args = yield this.validateArguments(this.args);
       let fmt = yield this.validateFmt(args.fmt);
 
+      console.log('@WorkingUrlFinder.start', fmt);
+
       let test_url;
       if (this.fmtHasSignature(fmt)) {
         let deciphered_signature = yield this.decipherSignature({
           ytplayer_config: args.ytplayer_config,
           signature: fmt.s || fmt.sig
         });
-        test_url = fmt.url + '&signature=' + deciphered_signature;
+
+        console.log('deciphered_signature', deciphered_signature);
+
+        test_url = fmt.url + '&sig=' + deciphered_signature;
       } else if (fmt.url) test_url = fmt.url;
 
       let working_url = yield this.testUrl(test_url);
-      this.emit('success', working_url + '&ratebypass=yes');
+
+      working_url += '&ratebypass=yes';
+
+      console.log(working_url);
+
+      this.emit('success', working_url);
     } catch (err) {
-      this.emit('error', err);
+      this.emit('error @WorkingUrlFinder.start', err);
     }
   });
 

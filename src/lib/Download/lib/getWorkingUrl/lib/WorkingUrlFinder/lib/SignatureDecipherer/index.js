@@ -129,13 +129,24 @@ SignatureDecipherer.prototype.start = async function start() {
     let jsplayer_url = 'https://youtube.com' + args.ytplayer_config.assets.js;
     let unvalidated_jsplayer = await t.getJsPlayerFromUrl(jsplayer_url);
     let jsplayer = await t.validateJsPlayer(unvalidated_jsplayer);
+
+    console.log('@SignatureDecipherer.start: tying to get decipher_name');
+
     let decipher_name = await t.getDecipherNameFromJsPlayer(
       jsplayer, t.regexp.decipher_names
     );
+
+    decipher_name = decipher_name.replace(' ', '');
+
+    console.log('@SignatureDecipherer.start: got decipher_name:', decipher_name);
+
     let decipher_argument = await t.getDecipherArgumentFromJsPlayer(
       jsplayer,
       new RegExp(decipher_name + t.regexp.decipher_argument)
     );
+
+    console.log('@SignatureDecipherer.start: got decipher_argument:', decipher_argument);
+
     let decipher_body = await t.getDecipherBodyFromJsPlayer(
       jsplayer, new RegExp(decipher_name + t.regexp.decipher_body)
     );
@@ -158,6 +169,7 @@ SignatureDecipherer.prototype.start = async function start() {
     t.emit('success', deciphered_signature);
   }
   catch (err) {
+    console.log('err');
     t.emit('error', err);
   }
 };
@@ -171,7 +183,9 @@ SignatureDecipherer.prototype.regexp = {
 
   decipher_names: [
     /sig\?.+?\&\&.+?\,(.+?)\(/,
-    /sig\|\|.+?\..+?\)\{var.+?\|\|(.+?)\(/
+    /sig\|\|.+?\..+?\)\{var.+?\|\|(.+?)\(/,
+    // new
+    /(.+?)=.?function\(.\)\{.=.\.split\(""\);.+?};/
   ],
 
   /**

@@ -8,6 +8,7 @@ module.exports = function convertFile(args) {
   return new Promise((resolve, reject) => {
     const new_file_name = args.temp_dir + '/' + args.file_name + '.mp3';
     const ffmpeg = spawn('ffmpeg', [
+      '-y',
       '-i', args.temp_file_loc,
       '-f', 'mp3', new_file_name
     ]);
@@ -15,7 +16,7 @@ module.exports = function convertFile(args) {
 
 
     let total_duration_secs;
-    console.log(ffmpeg.stderr);
+    //console.log(ffmpeg.stderr);
     ffmpeg.stderr.setEncoding('utf8');
     ffmpeg.stderr.on('data', data => {  
       //console.log(data.toString());
