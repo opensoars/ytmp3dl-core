@@ -26,13 +26,12 @@ This project will be rewritten to use modern features available in recent Node.j
 - Node.js (>=5.6.0) + NPM
 - ffmpeg
 
-
-
-
 # Use
 
 ```js
-new (require('ytmp3dl-core').Download)({ v: 'NnTg4vzli5s' })
+const Download = require('ytmp3dl-core').Download;
+
+new Download({ v: 'NnTg4vzli5s' })
   .on('callMethod', method => console.log(`callMethod: ${method}`))
   .on('stream-progress', prog => console.log('stream-progress', prog))
   .on('conversion-progress', prog => console.log('conversion-progress', prog))
