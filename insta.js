@@ -7,17 +7,17 @@ const ytdl = require('./dist/index.js');
 
 let dls = [];
 let vs = [
- /* 'NnTg4vzli5s',
+  'NnTg4vzli5s',
   'sQVeK7Dt18U',
   'kqq_oq6QWZI',
-  'd0TX75q6Y1M'*/
+  'd0TX75q6Y1M',
 
-/*   'lFMkAdg0E-Q',
+   'lFMkAdg0E-Q',
   'RaY4Rg-2sBA',
-*/
+
 
   
-  'NnTg4vzli5s'
+  //'NnTg4vzli5s'
   //'RaY4Rg-2sBA'
 
 ];
