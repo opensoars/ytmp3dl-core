@@ -46,7 +46,7 @@ new (require('ytmp3dl-core').Download)({ v: 'NnTg4vzli5s' })
 
 Logger, more try catch
 
-Front-end features. Which will be maintained in a new project repo.. More info soon.
+Front-end features. Which will be maintained in a new project repo.. More info soon. [ytmp3dl-server](https://github.com/opensoars/ytmp3dl-server) will be used in the process of creating user friendly experiences.
 
 Download retries, where will they be handled?
 
