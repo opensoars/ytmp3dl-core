@@ -3,8 +3,8 @@
 module.exports = async function start() {
   let t = this;
   try {
-    let a = await t.callMethod('validateArguments', t.args)
-    let unvalidated_url = await t.callMethod('getUrlFromArguments', a);
+    let args = await t.callMethod('validateArguments', t.args)
+    let unvalidated_url = await t.callMethod('getUrlFromArguments', args);
     let url = await t.callMethod('validateUrl', unvalidated_url);
     let unvalidated_source = await t.callMethod('getSourceFromUrl', url);
     let source = await t.callMethod('validateSource', unvalidated_source);
@@ -12,9 +12,13 @@ module.exports = async function start() {
       unvalidated_source,
       t.regexp.ytplayer_config
     );
+
     let video_info = await t.callMethod('getVideoInfoFromYtplayerConfig',
       ytplayer_config
     );
+
+    t.pub.set({ video_info });
+
     let file_safe_video_title = await t.callMethod('makeStringFileSafe',
       video_info.title
     );
@@ -22,10 +26,16 @@ module.exports = async function start() {
       ytplayer_config
     );
     let ranked_fmts = await t.callMethod('getRankedFmts', fmts);
+
+    t.pub.set({ ranked_fmts });
+
     let working_url = await t.callMethod('getWorkingUrl', {
       ranked_fmts,
       ytplayer_config
     });
+
+    t.pub.set({ working_url });
+
     let temp_file_loc = await t.callMethod('streamFileToTempDir', {
       working_url,
       temp_dir: this.temp_dir,

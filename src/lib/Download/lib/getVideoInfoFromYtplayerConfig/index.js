@@ -5,7 +5,8 @@ module.exports = function getVideoInfoFromYtplayerConfig(ytplayer_config) {
     let ytp_args = ytplayer_config.args;
 
     resolve({
-      title: ytp_args.title
+      title: ytp_args.title,
+      length_seconds: ytp_args.length_seconds
     });
   });
 };

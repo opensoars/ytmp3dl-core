@@ -28,7 +28,7 @@ module.exports = function streamFileToTempDir(args) {
           bytesWritten: stream.bytesWritten,
           'content-length': res.headers['content-length']
         });
-      }, 500);
+      }, 2000);
 
       res.on('end', end);
     }).on('error', (err) => endErr('https.get error'));

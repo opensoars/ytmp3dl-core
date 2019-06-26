@@ -8,21 +8,29 @@ module.exports = function getRankedFmts(fmts) {
   return new Promise((resolve, reject) => {
     if (fmts.length === 0) return reject('fmts.length === 0');
 
-    fmts.sort((a, b) => {
-      let a_i = a.type.indexOf('audio');
-      let b_i = b.type.indexOf('audio');
-      if (a_i < b_i) return 1;
-      if (a_i >= b_i) return -1;
-      return 0;
+    const webmFmts = [];
+    const mp4Fmts = [];
+    const vidFmts = [];
+
+    fmts.forEach(fmt => {
+      console.log(fmt);
+      if (fmt.type.indexOf('audio/webm') !== -1) webmFmts.push(fmt);
+      else if (fmt.type.indexOf('audio/mp4') !== -1) mp4Fmts.push(fmt);
+      else vidFmts.push(fmt);
     });
-    fmts.sort((a, b) => {
-      let a_i = a.type.indexOf('audio/mp4');
-      let b_i = b.type.indexOf('audio/mp4');
-      if (a_i < b_i) return 1;
-      if (a_i >= b_i) return -1;
+
+    const bitrateSorter = (a, b) => {
+      if (parseInt(a.bitrate) < parseInt(b.bitrate)) return 1;
+      if (parseInt(a.bitrate) >= parseInt(b.bitrate)) return -1;
       return 0;
-    });
-    // @TODO sort for best bitrate?
-    resolve(fmts);
+    };
+
+    webmFmts.sort(bitrateSorter);
+    mp4Fmts.sort(bitrateSorter);
+    vidFmts.sort(bitrateSorter);
+
+    const sortedFmts = [...webmFmts, ...mp4Fmts, ...vidFmts];
+
+    resolve(sortedFmts);
   });
 }

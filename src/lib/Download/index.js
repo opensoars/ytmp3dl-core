@@ -8,10 +8,12 @@ const is = require('is');
 
 
 let Download = class Download {
+
   constructor(args) {
     this.args = ens.obj(args);
-    //this.initPub();
+    this.initPub();
   }
+
   writeFile(fn, content, silent) {
     if (!silent) console.log('writeFile', fn);
     return new Promise((resolve, reject) => {
@@ -21,6 +23,7 @@ let Download = class Download {
       });
     });
   }
+
   callMethod(method, ...args) {
     if (!is.string(method))
       throw new Error('callMethod expected method name string as 1st arg');
@@ -29,6 +32,7 @@ let Download = class Download {
     this.emit('callMethod', method);
     return this[method].apply(this, args);
   }
+
   static copyAndClean(args) {
     fs.readFile(args.result_file_location, (err, file) => {
       fs.writeFile(args.dir + '/' + args.file_name, file, err => {
@@ -42,6 +46,7 @@ let Download = class Download {
       });
     });
   }
+
 };
 
 Download.prototype.initPub = function () {
