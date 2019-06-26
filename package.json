@@ -4,12 +4,7 @@
   "version": "0.0.14",
   "author": "opensoars",
   "scripts": {
-    "test": "gulp babel && node dist/index.js",
-    "local_test": "node node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha \"./test/mocha/*.js\"",
-    "coveralls": "node node_modules/coveralls/bin/coveralls.js < coverage/lcov.info",
-    "doc": "node node_modules/jsdoc/jsdoc.js -c ./doc/config.json --readme README.md",
-    "gulp-babel": "node node_modules/gulp/bin/gulp.js babel",
-    "gulp-watch": "node node_modules/gulp//bin/gulp.js watch"
+    "test": "node index.js",
   },
   "engines": {
     "node": ">=10.16.0"
