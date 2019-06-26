@@ -4,7 +4,7 @@
   "version": "0.0.15",
   "author": "opensoars",
   "scripts": {
-    "test": "node index.js",
+    "test": "node index.js"
   },
   "engines": {
     "node": ">=10.16.0"
