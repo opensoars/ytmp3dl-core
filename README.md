@@ -23,7 +23,7 @@ This project will be rewritten to use modern features available in recent Node.j
 
 # Requirements
 
-- `Node.js` (>=5.6.0) + `NPM`
+- `Node.js` (>=10.16.0) + `NPM`
 - Globally installed `ffmpeg`
 
 # Use
@@ -52,7 +52,7 @@ Download retries, where will they be handled?
 
 # Develop
 
-Run `npm run gulp-babel` to compile the source code. Run `npm run gulp-watch` to run the `gulp-babel` npm command on file change. Of course `gulp babel` and `gulp watch` can be used when gulp is locally installed.
+Previously this project was developed using Babel.js, but since Node.js LTS supports all the features that we were transpiling Babel.js is no longer used. To develop I run `node insta.js`, the `insta.js` file starts downloads when invoked.
 
 
 # Contributing
