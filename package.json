@@ -27,7 +27,8 @@
     "babel-preset-stage-3": "^6.3.13",
     "gulp": "^3.9.0",
     "gulp-babel": "^6.1.1",
-    "gulp-watch": "^4.3.5"
+    "gulp-watch": "^4.3.5",
+    "mocha": "^6.1.4"
   },
   "repository": {
     "type": "git",
