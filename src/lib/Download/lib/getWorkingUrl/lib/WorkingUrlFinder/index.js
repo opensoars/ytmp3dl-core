@@ -86,10 +86,12 @@ WorkingUrlFinder.prototype.start = async function start() {
 
     let working_url = await this.testUrl(test_url);
 
-    working_url += '&ratebypass=yes';
+    working_url += '&range=0-11111111111';
+
+    //working_url += '&ratebypass=yes';
 
     //console.log(working_url);
-
+    //working_url = working_url.replace('&sparams=', '&sparams=ratebypass,');
 
     this.emit('success', working_url);
   }

@@ -25,9 +25,14 @@ module.exports = function streamFileToTempDir(args) {
         let stream = res.pipe(writeStream);
 
         progress_interval = setInterval(() => {
+          const bytesWritten = stream.bytesWritten;
+          const contentLength = parseInt(res.headers['content-length']);
+          let percentage = bytesWritten / (contentLength / 100);
+          if (percentage > 100) percentage = 100;
           this.emit('stream-progress', {
-            bytesWritten: stream.bytesWritten,
-            'content-length': parseInt(res.headers['content-length'])
+            bytesWritten: bytesWritten,
+            bytesTotal: contentLength,
+            percentage: percentage
           });
         }, 2000);
 
