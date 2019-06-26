@@ -22,7 +22,12 @@ let vs = [
 
 ];
 
+ytdl.cleanTemp();
+
 vs.forEach(v => {
+
+  return;
+
   let dl = new ytdl.Download({ v });
 
   dl.on('error', (err) => {

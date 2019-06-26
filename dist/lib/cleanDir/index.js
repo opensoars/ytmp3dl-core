@@ -9,7 +9,7 @@ module.exports = function (o) {
     fs.readdir(o.dir, function (err, files) {
       files.forEach(function (file) {
         if (file === '.gitkeep') return;
-        fs.unlink(o.dir + '/' + file);
+        fs.unlinkSync(o.dir + '/' + file);
       });
     });
   };

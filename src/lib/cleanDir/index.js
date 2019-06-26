@@ -9,7 +9,7 @@ module.exports = (o) => {
     fs.readdir(o.dir, (err, files) => {
       files.forEach(file => {
         if (file === '.gitkeep') return;
-        fs.unlink(o.dir + '/' + file);
+        fs.unlinkSync(o.dir + '/' + file);
       });
     });
   }
