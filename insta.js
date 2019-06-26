@@ -1,20 +1,20 @@
 const fs = require('fs');
 
-const ytdl = require('./dist/index.js');
+const ytdl = require('./src/index.js');
 
 
 let dls = [];
 let vs = [
-  'NnTg4vzli5s',
+/*  'NnTg4vzli5s',
   'sQVeK7Dt18U',
   'kqq_oq6QWZI',
   'd0TX75q6Y1M',
 
    'lFMkAdg0E-Q',
   'RaY4Rg-2sBA',
-
-
-  
+*/
+  'Owbd9lvNM2Q',
+    
   //'NnTg4vzli5s'
   //'RaY4Rg-2sBA'
 
@@ -23,8 +23,6 @@ let vs = [
 ytdl.cleanTemp();
 
 vs.forEach(v => {
-
-  return;
 
   let dl = new ytdl.Download({ v });
 
