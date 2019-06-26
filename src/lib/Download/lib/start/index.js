@@ -50,7 +50,8 @@ module.exports = async function start() {
       file_name: file_safe_video_title,
       duration_re: t.regexp.duration,
       time_re: t.regexp.time,
-      file_ext: t.file_ext
+      file_ext: t.file_ext,
+      length_seconds: video_info.length_seconds
     });
 
     t.pub.set({ file_location });

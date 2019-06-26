@@ -14,7 +14,7 @@ module.exports = function convertFile(args) {
         '-f', 'mp3', new_file_name
       ]);
 
-      let total_duration_secs;
+      let total_duration_secs = args.length_seconds;
       //console.log(ffmpeg.stderr);
       ffmpeg.stderr.setEncoding('utf8');
       ffmpeg.stderr.on('data', data => {
@@ -23,8 +23,7 @@ module.exports = function convertFile(args) {
         console.log('DATA', data.toString());
         // Let's chech for the byte length instead of specific duration: string
         if (data.indexOf('Overwrite ? [y/N]') !== -1) ffmpeg.stdin.write('y\n');
-
-        else if (data.indexOf('Duration: ') !== -1) {
+/*        else if (data.indexOf('Duration: ') !== -1) {
           let duration_matches = args.duration_re.exec(data.toString());
           if (duration_matches instanceof Array && duration_matches[1]) {
             total_duration_secs = ffmpegTimeToSec(duration_matches[1]);
@@ -37,7 +36,7 @@ module.exports = function convertFile(args) {
             console.log('\n\n\n\n\n');
             reject('no duration_matches[1], could not extract total file time');
           }
-        }
+        }*/
         else if (data.indexOf('time=') !== -1) {
           let time_matches = args.time_re.exec(data.toString());
           if (time_matches[1]) {
