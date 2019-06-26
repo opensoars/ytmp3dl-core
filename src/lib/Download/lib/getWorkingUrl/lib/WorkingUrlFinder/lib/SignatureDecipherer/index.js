@@ -130,7 +130,7 @@ SignatureDecipherer.prototype.start = async function start() {
     let unvalidated_jsplayer = await t.getJsPlayerFromUrl(jsplayer_url);
     let jsplayer = await t.validateJsPlayer(unvalidated_jsplayer);
 
-    console.log('@SignatureDecipherer.start: tying to get decipher_name');
+    //console.log('@SignatureDecipherer.start: tying to get decipher_name');
 
     let decipher_name = await t.getDecipherNameFromJsPlayer(
       jsplayer, t.regexp.decipher_names
@@ -138,14 +138,14 @@ SignatureDecipherer.prototype.start = async function start() {
 
     decipher_name = decipher_name.replace(' ', '');
 
-    console.log('@SignatureDecipherer.start: got decipher_name:', decipher_name);
+    //console.log('@SignatureDecipherer.start: got decipher_name:', decipher_name);
 
     let decipher_argument = await t.getDecipherArgumentFromJsPlayer(
       jsplayer,
       new RegExp(decipher_name + t.regexp.decipher_argument)
     );
 
-    console.log('@SignatureDecipherer.start: got decipher_argument:', decipher_argument);
+    //console.log('@SignatureDecipherer.start: got decipher_argument:', decipher_argument);
 
     let decipher_body = await t.getDecipherBodyFromJsPlayer(
       jsplayer, new RegExp(decipher_name + t.regexp.decipher_body)
@@ -169,7 +169,7 @@ SignatureDecipherer.prototype.start = async function start() {
     t.emit('success', deciphered_signature);
   }
   catch (err) {
-    console.log('err');
+    //console.log('err');
     t.emit('error', err);
   }
 };

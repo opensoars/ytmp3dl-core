@@ -67,7 +67,7 @@ WorkingUrlFinder.prototype.start = async function start() {
     let args = await this.validateArguments(this.args);
     let fmt = await this.validateFmt(args.fmt);
 
-    console.log('@WorkingUrlFinder.start', fmt);
+    //console.log('@WorkingUrlFinder.start', fmt);
 
 
     let test_url;
@@ -77,7 +77,7 @@ WorkingUrlFinder.prototype.start = async function start() {
         signature: fmt.s || fmt.sig
       });
 
-      console.log('deciphered_signature', deciphered_signature);
+      //console.log('deciphered_signature', deciphered_signature);
 
       test_url = fmt.url + '&sig=' + deciphered_signature;
     }
@@ -88,7 +88,7 @@ WorkingUrlFinder.prototype.start = async function start() {
 
     working_url += '&ratebypass=yes';
 
-    console.log(working_url);
+    //console.log(working_url);
 
 
     this.emit('success', working_url);

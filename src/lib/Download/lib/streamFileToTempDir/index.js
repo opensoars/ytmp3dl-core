@@ -27,7 +27,7 @@ module.exports = function streamFileToTempDir(args) {
         progress_interval = setInterval(() => {
           this.emit('stream-progress', {
             bytesWritten: stream.bytesWritten,
-            'content-length': res.headers['content-length']
+            'content-length': parseInt(res.headers['content-length'])
           });
         }, 2000);
 

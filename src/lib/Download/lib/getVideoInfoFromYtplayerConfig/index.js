@@ -7,7 +7,7 @@ module.exports = function getVideoInfoFromYtplayerConfig(ytplayer_config) {
 
       resolve({
         title: ytp_args.title,
-        length_seconds: ytp_args.length_seconds
+        length_seconds: parseInt(ytp_args.length_seconds)
       });
     }
     catch (err) {

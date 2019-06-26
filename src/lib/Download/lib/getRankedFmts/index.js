@@ -14,7 +14,6 @@ module.exports = function getRankedFmts(fmts) {
       const vidFmts = [];
 
       fmts.forEach(fmt => {
-        console.log(fmt);
         if (fmt.type.indexOf('audio/webm') !== -1) webmFmts.push(fmt);
         else if (fmt.type.indexOf('audio/mp4') !== -1) mp4Fmts.push(fmt);
         else vidFmts.push(fmt);
