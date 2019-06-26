@@ -2,13 +2,18 @@
 
 module.exports = function validateUrl(url) {
   return new Promise((resolve, reject) => {
-    let is_valid_url = false;
+    try {
+      let is_valid_url = false;
 
-    let re_t1 = /https\:\/\/www\.youtube\.com\/watch\?v\=.+?/;
+      let re_t1 = /https\:\/\/www\.youtube\.com\/watch\?v\=.+?/;
 
-    if (re_t1.test(url))
-      is_valid_url = true;
+      if (re_t1.test(url))
+        is_valid_url = true;
 
-    is_valid_url ? resolve(url) : reject('Invalid url' + url);
+      is_valid_url ? resolve(url) : reject('Invalid url' + url);
+    }
+    catch (err) {
+      reject(err);
+    }
   });
 };

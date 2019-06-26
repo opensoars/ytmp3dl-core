@@ -2,11 +2,16 @@
 
 module.exports = function getVideoInfoFromYtplayerConfig(ytplayer_config) {
   return new Promise((resolve, reject) => {
-    let ytp_args = ytplayer_config.args;
+    try {
+      let ytp_args = ytplayer_config.args;
 
-    resolve({
-      title: ytp_args.title,
-      length_seconds: ytp_args.length_seconds
-    });
+      resolve({
+        title: ytp_args.title,
+        length_seconds: ytp_args.length_seconds
+      });
+    }
+    catch (err) {
+      reject(err);
+    }
   });
 };

@@ -41,6 +41,9 @@ module.exports = async function start() {
       temp_dir: this.temp_dir,
       file_name: file_safe_video_title
     });
+
+    t.pub.set({ temp_file_loc });
+
     let file_location = await t.callMethod('convertFile', {
       temp_file_loc,
       temp_dir: this.temp_dir,
@@ -49,6 +52,8 @@ module.exports = async function start() {
       time_re: t.regexp.time,
       file_ext: t.file_ext
     });
+
+    t.pub.set({ file_location });
 
     this.emit('success', {
       file_location,
