@@ -1,6 +1,6 @@
 "use strict";
 
-const temp_dir = __dirname + '/../temp/';
+const temp_dir = __dirname + '/../temp';
 
 const ytdl = {};
 
