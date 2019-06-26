@@ -45,8 +45,9 @@ new Download({ v: 'NnTg4vzli5s' })
 
 * Better logging
 * Better error handling more try catch
-* Front-end features. Which will be maintained in a new project repo.. More info soon. [ytmp3dl-server](https://github.com/opensoars/ytmp3dl-server) will be used in the process of creating user friendly experiences.
 * Command line interface [ytmp3dl-cli](https://github.com/opensoars/ytmp3dl-cli).
+* REST server [ytmp3dl-server](https://github.com/opensoars/ytmp3dl-server) to CRUD (manage) downloads.
+* Front-end features. Which will be maintained in a new project repo.. More info soon. [ytmp3dl-server](https://github.com/opensoars/ytmp3dl-server) will be used in the process of creating user friendly experiences.
 * Download retries, where will they be handled?
 
 
