@@ -61,7 +61,14 @@ module.exports = function convertFile(args) {
       ffmpeg.on('error', err => reject(err));
 
       ffmpeg.on('close', code => {
-        if (code === 0) resolve(new_file_name);
+        if (code === 0) {
+          this.emit('conversion-progress', {
+            current: total_duration_secs,
+            total: total_duration_secs,
+            percentage: 100
+          });
+          resolve(new_file_name);
+        }
         else reject('ffmpeg exited with code ' + code);
       });
     }

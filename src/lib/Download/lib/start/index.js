@@ -3,6 +3,18 @@
 module.exports = async function start() {
   let t = this;
   try {
+    t.pub.set({
+      start: new Date().getTime(),
+      completed: false,
+      error: false,
+      methodsCalled: [],
+      errs: []
+    });
+
+    t.on('stream-progress', streamProgress => t.pub.set({ streamProgress }));
+    t.on('conversion-progress', conversionProgress => t.pub.set({ conversionProgress }));
+    t.on('callMethod', method => t.pub.methodsCalled.push(method));
+
     let args = await t.callMethod('validateArguments', t.args)
     let unvalidated_url = await t.callMethod('getUrlFromArguments', args);
     let url = await t.callMethod('validateUrl', unvalidated_url);
@@ -27,7 +39,7 @@ module.exports = async function start() {
     );
     let ranked_fmts = await t.callMethod('getRankedFmts', fmts);
 
-    t.pub.set({ ranked_fmts });
+    // t.pub.set({ ranked_fmts });
 
     let working_url = await t.callMethod('getWorkingUrl', {
       ranked_fmts,
@@ -42,7 +54,7 @@ module.exports = async function start() {
       file_name: file_safe_video_title
     });
 
-    t.pub.set({ temp_file_loc });
+    // t.pub.set({ temp_file_loc });
 
     let file_location = await t.callMethod('convertFile', {
       temp_file_loc,
@@ -54,7 +66,7 @@ module.exports = async function start() {
       length_seconds: video_info.length_seconds
     });
 
-    t.pub.set({ file_location });
+    t.pub.set({ file_location, completed: true });
 
     this.emit('success', {
       file_location,
@@ -63,6 +75,8 @@ module.exports = async function start() {
     });
   }
   catch (err) {
+    t.pub.error = true;
+    t.pub.errs.push(err);
     t.emit('error', err);
   }
 };

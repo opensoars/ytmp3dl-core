@@ -6,12 +6,27 @@ const EventEmitter = require('events').EventEmitter;
 const ens = require('ens');
 const is = require('is');
 
+class Store {
+  constructor(args) {
+    for (let k in args) this[k] = args[k];
+  }
+  set() {
+    if (is.object(arguments[0]))
+      for (let key in arguments[0]) this[key] = arguments[0][key];
+    if (is.string(arguments[0]) && arguments[1])
+      this[arguments[0]] = arguments[1];
+
+    return this;
+  }
+}
 
 let Download = class Download {
 
   constructor(args) {
     this.args = ens.obj(args);
-    this.initPub();
+    //this.initPub();
+
+    this.pub = new Store();
   }
 
   writeFile(fn, content, silent) {
@@ -35,7 +50,7 @@ let Download = class Download {
 
   static copyAndClean(args) {
     fs.readFile(args.result_file_location, (err, file) => {
-      fs.writeFile(args.dir + '/' + args.file_name, file, err => {
+      fs.writeFile(args.output, file, err => {
         if (err) throw err;
       });
       fs.unlink(args.result_file_location, err => {

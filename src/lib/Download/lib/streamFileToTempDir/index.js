@@ -16,27 +16,34 @@ module.exports = function streamFileToTempDir(args) {
       }
       function end() {
         clearInterval(progress_interval);
+
         resolve(full_loc);
       }
       let writeStream = fs.createWriteStream(full_loc)
         .on('error', (err) => endErr('Stream error', err));
 
       https.get(args.working_url, res => {
-        let stream = res.pipe(writeStream);
+        const stream = res.pipe(writeStream);
+        const contentLength = parseInt(res.headers['content-length']);
 
         progress_interval = setInterval(() => {
-          const bytesWritten = stream.bytesWritten;
-          const contentLength = parseInt(res.headers['content-length']);
-          let percentage = bytesWritten / (contentLength / 100);
+          let percentage = stream.bytesWritten / (contentLength / 100);
           if (percentage > 100) percentage = 100;
           this.emit('stream-progress', {
-            bytesWritten: bytesWritten,
+            bytesWritten: stream.bytesWritten,
             bytesTotal: contentLength,
             percentage: percentage
           });
         }, 2000);
 
-        res.on('end', end);
+        res.on('end', () => {
+          this.emit('stream-progress', {
+            bytesWritten: stream.bytesWritten,
+            bytesTotal: contentLength,
+            percentage: 100
+          });
+          end();
+        });
       }).on('error', (err) => endErr('https.get error'));
     }
     catch (err) {

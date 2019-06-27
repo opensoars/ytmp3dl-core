@@ -12,8 +12,8 @@ let vs = [
 
    'lFMkAdg0E-Q',
   'RaY4Rg-2sBA',
-*/
-  'Owbd9lvNM2Q',
+
+  'Owbd9lvNM2Q', */
     
   //'NnTg4vzli5s'
   //'RaY4Rg-2sBA'
@@ -32,13 +32,18 @@ vs.forEach(v => {
   });
 
   dl.on('success', (result) => {
+    const outDir = __dirname + '/done';
+    const fileName = result.file_name + '.' + result.file_ext;
+    const output = outDir + '/' + fileName;
+
     ytdl.Download.copyAndClean({
-      dir: __dirname + '/done',
       result_file_location: result.file_location,
-      file_ext: dl.file_ext,
-      file_name: result.file_name + result.file_ext
+      file_ext: result.file_ext,
+      output
     });
     console.log('success', result);
+
+    console.log(dl.pub);
   });
 
   dl.on('callMethod', (method) => {
@@ -46,9 +51,7 @@ vs.forEach(v => {
   }); 
 
   dl.on('stream-progress', (o) => {
-    console.log('stream-progress', {
-       ...o, 
-       '%': Math.ceil(o.bytesWritten / (o['content-length'] / 100) * 100) / 100})
+    console.log('stream-progress', o);
   });
 
   dl.on('conversion-progress', (o) => {
