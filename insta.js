@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const ytdl = require('./src/index.js');
+const ytmp3dl = require('./src/index.js');
 
 
 let dls = [];
@@ -20,11 +20,11 @@ let vs = [
 
 ];
 
-ytdl.cleanTemp();
+ytmp3dl.cleanTemp();
 
 vs.forEach(v => {
 
-  let dl = new ytdl.Download({ v });
+  let dl = new ytmp3dl.Download({ v });
 
   dl.on('error', (err) => {
     console.log('error', err);
@@ -36,7 +36,7 @@ vs.forEach(v => {
     const fileName = result.file_name + '.' + result.file_ext;
     const output = outDir + '/' + fileName;
 
-    ytdl.Download.copyAndClean({
+    ytmp3dl.Download.copyAndClean({
       result_file_location: result.file_location,
       file_ext: result.file_ext,
       output
