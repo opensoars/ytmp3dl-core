@@ -11,6 +11,8 @@ module.exports = function validateArguments(args) {
         reject('!args.v && !args.url');
       else if (!is.string(args.v) && !is.string(args.url))
         reject('!is.string(args.v) && !is.string(args.url)');
+      else if (args.v.length !== 11)
+        reject('args.v.length !== 11');
       else
         resolve(args);
     }

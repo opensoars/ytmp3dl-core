@@ -1,0 +1,1159 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"method",
+				"methodsCalled"
+			],
+			[
+				"cons",
+				"constructor"
+			],
+			[
+				"tot",
+				"total"
+			],
+			[
+				"total",
+				"total_duration_secs"
+			],
+			[
+				"cont",
+				"contentLength"
+			],
+			[
+				"le",
+				"length_seconds"
+			],
+			[
+				"sor",
+				"sortedFmts"
+			],
+			[
+				"so",
+				"sortedFmts"
+			],
+			[
+				"sort",
+				"sortBitrate"
+			],
+			[
+				"we",
+				"webmFmts"
+			],
+			[
+				"call",
+				"callMethod"
+			],
+			[
+				"decip",
+				"deciphered_signature"
+			],
+			[
+				"deci",
+				"decipher"
+			],
+			[
+				"JSON",
+				"json_encode"
+			],
+			[
+				"next",
+				"nextSeason"
+			],
+			[
+				"usersOn",
+				"usersOnlineContainer"
+			],
+			[
+				"font-s",
+				"font-style"
+			],
+			[
+				"chosen",
+				"chosenCount"
+			],
+			[
+				"choen",
+				"chosenCount"
+			],
+			[
+				"click",
+				"clickInfo1"
+			],
+			[
+				"time",
+				"timeout"
+			],
+			[
+				"User",
+				"Users_online"
+			],
+			[
+				"modal",
+				"modalBodyStr"
+			],
+			[
+				"moda",
+				"modalBodyStr"
+			],
+			[
+				"entry",
+				"entry-complete"
+			],
+			[
+				"defau",
+				"entry-default-win"
+			],
+			[
+				"scores",
+				"scoresString"
+			],
+			[
+				"playerFi",
+				"playerFieldButton"
+			],
+			[
+				"mostCh",
+				"mostChosenSetupSection"
+			],
+			[
+				"se",
+				"setupCounts"
+			],
+			[
+				"th",
+				"thead\tTag"
+			],
+			[
+				"Pl",
+				"Player_1"
+			],
+			[
+				"player",
+				"playersArr"
+			],
+			[
+				"play",
+				"playersArr"
+			],
+			[
+				"playe",
+				"playersObj"
+			],
+			[
+				"news",
+				"newsCookie"
+			],
+			[
+				"new",
+				"newsId"
+			],
+			[
+				"joker_s",
+				"joker_scores_arr"
+			],
+			[
+				"user",
+				"user_name"
+			],
+			[
+				"user_",
+				"user_id"
+			],
+			[
+				"la",
+				"Laatste"
+			],
+			[
+				"rounds",
+				"roundTexts"
+			],
+			[
+				"Speel",
+				"speelronde"
+			],
+			[
+				"fix",
+				"fixedRounds"
+			],
+			[
+				"fixed",
+				"fixedRound"
+			],
+			[
+				"round",
+				"roundsCount"
+			],
+			[
+				"brak",
+				"bracketHtml"
+			],
+			[
+				"start",
+				"startKo"
+			],
+			[
+				"info",
+				"info1"
+			],
+			[
+				"mat",
+				"match"
+			],
+			[
+				"jokerScore",
+				"jokerScoresArr"
+			],
+			[
+				"ko",
+				"koData"
+			],
+			[
+				"getP",
+				"getPeriodTableData"
+			],
+			[
+				"empty-",
+				"empty-bye"
+			],
+			[
+				"matc",
+				"matchesString"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"emp",
+				"empty-tbd"
+			],
+			[
+				"ini",
+				"initial\tbox-sizing"
+			],
+			[
+				"hig",
+				"highestI"
+			],
+			[
+				"hi",
+				"highestI"
+			],
+			[
+				"he",
+				"highestRandom"
+			],
+			[
+				"dupe",
+				"dupeIndex"
+			],
+			[
+				"dup",
+				"dupeIndex"
+			],
+			[
+				"du",
+				"dupeIndex"
+			],
+			[
+				"gho",
+				"requiredGhosts"
+			],
+			[
+				"qua",
+				"qualificationRound-1"
+			],
+			[
+				"red",
+				"redNess"
+			],
+			[
+				"tex",
+				"colorText"
+			],
+			[
+				"love",
+				"loveLines"
+			],
+			[
+				"color",
+				"colorText"
+			],
+			[
+				"re",
+				"removeClass"
+			],
+			[
+				"loveL",
+				"loveLinesEl"
+			],
+			[
+				"hear",
+				"heartEl"
+			],
+			[
+				"score",
+				"scoresArticle"
+			],
+			[
+				"desc",
+				"descriptionArticle"
+			],
+			[
+				"teams",
+				"teamsData"
+			],
+			[
+				"b",
+				"inline-block\tdisplay"
+			],
+			[
+				"Sub",
+				"substitutes"
+			],
+			[
+				"already",
+				"alreadyChanged"
+			],
+			[
+				"alre",
+				"alreadyChanged"
+			],
+			[
+				"old",
+				"oldPlayers"
+			],
+			[
+				"prev",
+				"prevPlayers"
+			],
+			[
+				"curr",
+				"currentRound"
+			],
+			[
+				"upda",
+				"updateTeamQ"
+			],
+			[
+				"upc",
+				"upcomingPlayers"
+			],
+			[
+				"current",
+				"currentJoker"
+			],
+			[
+				"cur",
+				"currentSetup"
+			],
+			[
+				"currentTea",
+				"currentTeamRow"
+			],
+			[
+				"rgb",
+				"rgba()\tbackground-color"
+			],
+			[
+				"done",
+				"doneCheck"
+			],
+			[
+				"previ",
+				"previousRound"
+			],
+			[
+				"scale",
+				"scaleField"
+			],
+			[
+				"scal",
+				"scaleInterval"
+			],
+			[
+				"mon",
+				"monoFont"
+			],
+			[
+				"pos",
+				"posKeys"
+			],
+			[
+				"club",
+				"club_ids"
+			],
+			[
+				"pla",
+				"players_ids"
+			],
+			[
+				"allT",
+				"alltimeTableRoot"
+			],
+			[
+				"team",
+				"teamsLocked"
+			],
+			[
+				"disabled",
+				"disabledClass"
+			],
+			[
+				"delete",
+				"deleteButton"
+			],
+			[
+				"tem",
+				"template-parts"
+			],
+			[
+				"field",
+				"fieldStr"
+			],
+			[
+				"teamsD",
+				"teamsData2"
+			],
+			[
+				"parse",
+				"parseInt"
+			],
+			[
+				"head",
+				"headStr"
+			],
+			[
+				"body",
+				"bodyStr"
+			],
+			[
+				"get",
+				"getElementById"
+			],
+			[
+				"check",
+				"checkErr"
+			],
+			[
+				"disabl",
+				"disabledStr"
+			],
+			[
+				"che",
+				"checkRes"
+			],
+			[
+				"from",
+				"fromLength"
+			],
+			[
+				"range",
+				"rangeEnd"
+			],
+			[
+				"playerFieldBut",
+				"playerFieldButton_"
+			],
+			[
+				"joker",
+				"jokerSelect"
+			],
+			[
+				"setupKey",
+				"setupKeyMapReversed"
+			],
+			[
+				"sec",
+				"secondsLeft"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/home/sam/dev/ytmp3dl-core/src/lib/Download/index.js",
+			"settings":
+			{
+				"buffer_size": 3922,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/sam/dev/ytmp3dl-core/src/lib/Download/lib/start/index.js",
+			"settings":
+			{
+				"buffer_size": 2319,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/sam/dev/ytmp3dl-core/src/lib/Download/lib/validateUrl/index.js",
+			"settings":
+			{
+				"buffer_size": 393,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "\"use strict\";\n\nconst is = require('is');\n\nmodule.exports = function validateArguments(args) {\n  return new Promise((resolve, reject) => {\n    try {\n      if (!is.object(args))\n        reject('!is.object(args)');\n      else if (!args.v && !args.url)  \n        reject('!args.v && !args.url');\n      else if (!is.string(args.v) && !is.string(args.url))\n        reject('!is.string(args.v) && !is.string(args.url)');\n      else if (args.v.length !== 11) {\n        reject('args.v.length !== 11');\n      // @TODO check for url\n      }\n      else\n        resolve(args);\n    }\n    catch (err) {\n      reject(err);\n    }\n\n  });\n};\n\n",
+			"file": "index.js",
+			"file_size": 593,
+			"file_write_time": 132061006964864786,
+			"settings":
+			{
+				"buffer_size": 622,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/sam/dev/ytmp3dl-core/insta.js",
+			"settings":
+			{
+				"buffer_size": 1133,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"plugin",
+				"Plugin Development: Profile Events"
+			],
+			[
+				"sftp",
+				"Preferences: SFTP Settings"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"keyb",
+				"Preferences: Key Bindings"
+			],
+			[
+				"key bind",
+				"Preferences: Key Bindings"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 382.0,
+		"history":
+		[
+			"test = False;",
+			"test = false",
+			"test = True",
+			"test = 123;",
+			"Plugin",
+			"Plugn",
+			"User"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/sam/dev/ytmp3dl-core",
+		"/home/sam/dev/ytmp3dl-core/src",
+		"/home/sam/dev/ytmp3dl-core/src/lib",
+		"/home/sam/dev/ytmp3dl-core/src/lib/cleanDir",
+		"/home/sam/dev/ytmp3dl-core/src/lib/Download",
+		"/home/sam/dev/ytmp3dl-core/src/lib/Download/lib",
+		"/home/sam/dev/ytmp3dl-core/src/lib/Download/lib/getUrlFromArguments",
+		"/home/sam/dev/ytmp3dl-core/src/lib/Download/lib/start",
+		"/home/sam/dev/ytmp3dl-core/src/lib/Download/lib/validateArguments",
+		"/home/sam/dev/ytmp3dl-core/src/lib/Download/lib/validateUrl"
+	],
+	"file_history":
+	[
+		"/home/sam/dev/ytmp3dl-core/src/lib/Download/lib/getUrlFromArguments/index.js",
+		"/home/sam/dev/ytmp3dl-core/src/lib/Download/lib/validateArguments/index.js",
+		"/home/sam/dev/ytmp3dl-core/insta.js",
+		"/home/sam/dev/ytmp3dl-server/src/index.js",
+		"/home/sam/dev/ytmp3dl-core/src/lib/Download/lib/getRankedFmts/index.js",
+		"/home/sam/dev/ytmp3dl-core/src/lib/Download/lib/getWorkingUrl/lib/WorkingUrlFinder/index.js",
+		"/home/sam/dev/ytmp3dl-core/src/lib/Download/lib/getWorkingUrl/index.js",
+		"/home/sam/dev/ytmp3dl-core/src/lib/Download/lib/start/index.js",
+		"/home/sam/dev/ytmp3dl-core/src/lib/Download/index.js",
+		"/home/sam/dev/ytmp3dl-core/src/lib/Download/lib/convertFile/index.js",
+		"/home/sam/dev/ytmp3dl-core/src/lib/Download/lib/streamFileToTempDir/index.js",
+		"/home/sam/dev/ytmp3dl-core/src/lib/Download/lib/getVideoInfoFromYtplayerConfig/index.js",
+		"/home/sam/dev/ytmp3dl-core/src/lib/Download/lib/getYtPlayerConfigFromSource/index.js",
+		"/home/sam/dev/ytmp3dl-core/src/lib/Download/lib/getWorkingUrl/lib/WorkingUrlFinder/lib/SignatureDecipherer/index.js",
+		"/home/sam/dev/ytmp3dl-core/src/index.js",
+		"/home/sam/dev/ytmp3dl-core/src/lib/Download/lib/getFmtsFromYtplayerConfig/index.js",
+		"/home/sam/dev/ytmp3dl-core/src/lib/Download/lib/makeStringFileSafe/index.js",
+		"/home/sam/dev/ytmp3dl-core/src/lib/Download/lib/getSourceFromUrl/index.js",
+		"/home/sam/dev/ytmp3dl-core/src/lib/Download/lib/validateUrl/index.js",
+		"/home/sam/dev/ytmp3dl-server/insta.js",
+		"/home/sam/dev/ytmp3dl-core/src/lib/Download/lib/convertFile/lib/ffmpegTimeToSec/index.js",
+		"/home/sam/dev/ytmp3dl-server/node_modules/ytmp3dl-core/src/lib/Download/index.js",
+		"/home/sam/dev/ytmp3dl-core/package.json",
+		"/home/sam/dev/ytmp3dl-server/README.md",
+		"/home/sam/dev/ytmp3dl-cli/README.md",
+		"/home/sam/dev/ytmp3dl-server/package.json",
+		"/home/sam/dev/ytmp3dl-cli/.gitignore",
+		"/home/sam/dev/ytmp3dl-core/README.md",
+		"/home/sam/dev/ytmp3dl-cli/.travis.yml",
+		"/home/sam/dev/ytmp3dl-cli/package.json",
+		"/home/sam/dev/ytmp3dl-cli/LICENSE",
+		"/home/sam/dev/ytmp3dl-core/LICENSE",
+		"/home/sam/dev/ytmp3dl-server/LICENSE",
+		"/home/sam/dev/ytmp3dl-core/.travis.yml",
+		"/home/sam/dev/ytmp3dl-server/.travis.yml",
+		"/home/sam/dev/ytmp3dl-server/.gitignore",
+		"/home/sam/dev/ytmp3dl-server/.npmignore",
+		"/home/sam/dev/ytmp3dl-core/.gitignore",
+		"/home/sam/dev/ytmp3dl-core/.npmignore",
+		"/home/sam/dev/ytmp3dl-server/node_modules/ytmp3dl-core/insta.js",
+		"/home/sam/dev/ytmp3dl-server/package-lock.json",
+		"/home/sam/dev/ytmp3dl-core/index.js",
+		"/home/sam/dev/ytmp3dl-test/index.js",
+		"/home/sam/dev/ytmp3dl-server/.babelrc",
+		"/home/sam/dev/ytmp3dl-server/.codeclimate.yml",
+		"/home/sam/dev/ytmp3dl-server/gulpfile.js",
+		"/home/sam/dev/ytmp3dl-core/src/lib/cleanDir/index.js",
+		"/home/sam/dev/ytmp3dl-core/package-lock.json",
+		"/home/sam/dev/ytmp3dl-core/node_modules/minimatch/browser.js",
+		"/home/sam/dev/ytmp3dl-core/node_modules/minimatch/minimatch.js",
+		"/home/sam/dev/ytmp3dl-core/node_modules/minimatch/package.json",
+		"/home/sam/dev/ytmp3dl-core/done/.gitkeep",
+		"/home/sam/dev/react-boiler/app/containers/LanguageProvider/index.js",
+		"/home/sam/dev/react-boiler/jest.config.js",
+		"/home/sam/dev/react-boiler/package.json",
+		"/home/sam/dev/react-boiler/app/.htaccess",
+		"/home/sam/dev/react-boiler/server/index.js",
+		"/home/sam/dev/react-boiler/app/i18n.js",
+		"/home/sam/dev/react-boiler/app/app.js",
+		"/home/sam/dev/react-boiler/app/components/H3/tests/index.test.js",
+		"/home/sam/dev/react-boiler/app/components/H3/index.js",
+		"/home/sam/dev/react-boiler/app/translations/de.json",
+		"/home/sam/dev/react-boiler/app/translations/en.json",
+		"/home/sam/dev/react-boiler/app/components/Toggle/Select.js",
+		"/home/sam/dev/react-boiler/app/components/Toggle/index.js",
+		"/home/sam/dev/react-boiler/app/components/A/index.js",
+		"/tmp/fz3temp-2/header 2.php",
+		"/tmp/fz3temp-2/index.php",
+		"/tmp/fz3temp-2/.htaccess",
+		"/tmp/fz3temp-2/index 5.php",
+		"/tmp/fz3temp-2/.htaccess 4",
+		"/tmp/fz3temp-2/.htaccess 3",
+		"/tmp/fz3temp-2/index 4.php",
+		"/tmp/fz3temp-2/.htaccess 2",
+		"/tmp/fz3temp-2/header.php",
+		"/tmp/fz3temp-2/headerr.php",
+		"/tmp/fz3temp-2/footerr.php",
+		"/tmp/fz3temp-2/footer.php",
+		"/tmp/fz3temp-2/style.css",
+		"/tmp/fz3temp-2/index 2.php",
+		"/home/sam/dev/super11_remote/super11/super11_good_api/team/cloneTeams.php",
+		"/tmp/fz3temp-3/WP_Route.php",
+		"/tmp/fz3temp-3/functions.php",
+		"/tmp/fz3temp-3/test.php",
+		"/tmp/fz3temp-3/.htaccess",
+		"/tmp/fz3temp-3/.htaccess 2",
+		"/tmp/fz3temp-2/test.php",
+		"/tmp/fz3temp-3/wp-config-production.php",
+		"/var/www/html/webvrtool_com/wp-config.php",
+		"/etc/apache2/sites-available/projectname.conf",
+		"/tmp/fz3temp-3/wp-config.php",
+		"/tmp/fz3temp-3/style.css",
+		"/tmp/fz3temp-2/wp-config.php",
+		"/tmp/fz3temp-2/index 3.php",
+		"/home/sam/dev/my-app/package.json",
+		"/tmp/fz3temp-2/logo.png",
+		"/tmp/fz3temp-2/todo.txt",
+		"/tmp/fz3temp-2/robots.txt",
+		"/tmp/fz3temp-2/cnrig",
+		"/tmp/fz3temp-2/sess_3e07c0c9024fb6315e1382b59986ec8d",
+		"/tmp/fz3temp-2/sess_dc42e1c1184892ff29af571207e221e7",
+		"/tmp/fz3temp-2/sess_4ec1700dc43eb26ab64937726e41fb2b",
+		"/tmp/fz3temp-2/sess_0384e2a85c92f4452afdfb24eff3f722",
+		"/tmp/fz3temp-2/sess_1f15e74a7658a1ba07675e4bb1bc5ee7",
+		"/home/sam/dev/super11_remote/super11/super11_good/templates/admin_template.php",
+		"/home/sam/dev/super11_remote/super11/super11_good/template-parts/admin/rules.php",
+		"/tmp/fz3temp-2/class-offlineusage.php",
+		"/tmp/fz3temp-2/progressive-wordpress.php",
+		"/tmp/fz3temp-2/sess_e0982908209e80320c6b3186d1baac51",
+		"/home/sam/dev/super11-api/sites-available/default",
+		"/tmp/fz3temp-2/index.html",
+		"/tmp/fz3temp-2/phpjSgwwO",
+		"/tmp/fz3temp-2/sess_b5a219438a29bbe410cefdad38a6cd0b",
+		"/home/sam/dev/react-boiler/app/containers/HomePage/tests/selectors.test.js",
+		"/home/sam/dev/react-boiler/app/containers/HomePage/Section.js",
+		"/home/sam/dev/react-boiler/app/containers/HomePage/selectors.js",
+		"/home/sam/dev/react-boiler/app/containers/HomePage/reducer.js",
+		"/home/sam/dev/react-boiler/app/containers/HomePage/actions.js",
+		"/home/sam/dev/react-boiler/app/containers/HomePage/Input.js",
+		"/home/sam/dev/react-boiler/app/index.html",
+		"/home/sam/dev/react-boiler/package-lock.json",
+		"/home/sam/dev/super11_remote/super11/super11_good/template-parts/admin/admin.php",
+		"/home/sam/dev/super11_remote/super11/super11_good/sftp-config.json",
+		"/home/sam/dev/super11_remote/super11/super11_good/templates/login_template.php",
+		"/home/sam/dev/super11_remote/super11/super11_good_api/login/logout.php",
+		"/home/sam/dev/super11_remote/super11/super11_good/templates/scores_template.php",
+		"/home/sam/dev/super11_remote/super11/super11_good_api/login/login.php",
+		"/home/sam/dev/super11_remote/super11/super11_good_api/login/subscribe.php"
+	],
+	"find":
+	{
+		"height": 32.0
+	},
+	"find_in_files":
+	{
+		"height": 100.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"event",
+			"stream-progress",
+			"argv",
+			"ytdl",
+			".d",
+			"// ",
+			"store",
+			"t.pub.set({",
+			"t.",
+			"pub",
+			"dir",
+			"file_ext",
+			"dir",
+			"file_name",
+			"streamProgress",
+			"&sparams",
+			"sparams",
+			"constl",
+			"const",
+			"console.",
+			"log",
+			"durationDetected",
+			"sortedFmts",
+			"sortBitrate",
+			"vidFmts",
+			"b_i",
+			"mp4",
+			"a",
+			"ranked_fmts",
+			"core",
+			"minimatch",
+			"minima",
+			"ffmpegTimeToSec",
+			"pub",
+			"ratebypass,",
+			"query",
+			"params",
+			",",
+			"deciphered_signature",
+			"signature",
+			"decipher_name",
+			"decipher_argument",
+			"getDecipherNameFromJsPlayer",
+			"(.+?)=.?function\\(.\\)\\{.=.\\.split\\(\"\"\\);.+?};",
+			"decipher_function_name_res",
+			"getDecipherNameFromJsPlayer",
+			"decipher_names",
+			"getDecipherNameFromJsPlayer",
+			"initPub",
+			"cleanTemp",
+			"copyAndClean",
+			"BV=",
+			"sig",
+			"sjg",
+			"log",
+			"SignatureDecipherer",
+			"content",
+			"decipher_body",
+			"Av",
+			".+?=.?function\\(.\\)\\{.=.\\.split\\(\"\"\\);.+?};",
+			"sig:",
+			"sig",
+			".+?=.?function\\(.\\)\\{.=.\\.split",
+			".+?=.?function\\(.+?\\)\\{+.?=.+?\\.split",
+			"Bv=function",
+			"Bv=function(n){return n=n.split(\"\"),Av.oN(n,20),Av.VW(n,50),Av.oN(n,17),n.join(\"\")};",
+			"Bv(",
+			"Bv",
+			"oN",
+			"c=a[0];a[0]=a[b%a.length];a[b]=c",
+			"a[0]=a[b%a.length]",
+			"useCipher",
+			"use_cipher_signature",
+			"sig:",
+			"g\\.dh",
+			"\"",
+			"m",
+			"gapi_hint_params",
+			"audio",
+			"s=",
+			"log",
+			"s=",
+			"sig",
+			"sig=",
+			"sig",
+			"s=",
+			"\\.s\\)",
+			"\\.s",
+			"Zg=",
+			"dh:",
+			"dh(",
+			"function dh",
+			";",
+			"sig:",
+			"LH",
+			"c.LH",
+			"sig\\:",
+			"LH",
+			"sig:",
+			"\\.sig",
+			"sig",
+			"LH",
+			"sig",
+			"sigs",
+			"urlsigs",
+			"sig",
+			"signatureexpired",
+			"sig",
+			"osig",
+			"sig",
+			"sig\\|",
+			"sig|",
+			"fmt",
+			"\\.s\\|",
+			"\\.s\\?",
+			"\\.s",
+			"sig",
+			"fmtHasSignature",
+			"fmt\\.s",
+			"fmt.s",
+			"fmtHasSignature",
+			"=function\\\\(.+?\\\\)\\\\{([\\\\w\\\\W]+?)\\\\}",
+			"=function\\\\((.+?)\\\\)\\\\{[\\\\w\\\\W]+?\\\\}",
+			"sig.+?\\|\\|.+?\\(",
+			"\\|\\|.+?\\(",
+			"function A",
+			".\\.sig",
+			"=\\\\{([\\\\w\\\\W\\\\.\\\\:]+?)\\\\};"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 3,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/home/sam/dev/ytmp3dl-core/src/lib/Download/index.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3922,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								628,
+								628
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/sam/dev/ytmp3dl-core/src/lib/Download/lib/start/index.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2319,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								709,
+								709
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/home/sam/dev/ytmp3dl-core/src/lib/Download/lib/validateUrl/index.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 393,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								269,
+								269
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "index.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 622,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								622,
+								622
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 4,
+					"file": "/home/sam/dev/ytmp3dl-core/insta.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1133,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1086,
+								1086
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 22.0
+	},
+	"input":
+	{
+		"height": 190.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.5,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.sftp":
+	{
+		"height": 97.0
+	},
+	"pinned_build_system": "",
+	"project": "ytmp3dl-core.sublime-project",
+	"replace":
+	{
+		"height": 40.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 307.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
