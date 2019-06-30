@@ -5,7 +5,7 @@ Async YouTube downloader - core Node.js module.
 This project will be rewritten to use modern features available in recent Node.js releases. Main functionality and project architecture will stay roughly the same. The development of the new `ytmp3dl-core` project will happen simultaneously with the upgrade of the `ytmp3dl-server` project.
 
 [![Build Status](https://travis-ci.org/opensoars/ytmp3dl-core.svg?branch=master)](https://travis-ci.org/opensoars/ytmp3dl-core)
-![npm](https://img.shields.io/npm/v/ytmp3dl-core.svg?color=green)
+[![npm](https://img.shields.io/npm/v/ytmp3dl-core.svg?color=green)](https://www.npmjs.com/package/ytmp3dl-core)
 
 <!---
 [![Coverage Status](https://coveralls.io/repos/opensoars/ytmp3dl-core/badge.svg?branch=master&service=github)](https://coveralls.io/github/opensoars/ytmp3dl-core?branch=master)
