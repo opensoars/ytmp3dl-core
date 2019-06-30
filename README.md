@@ -43,6 +43,8 @@ new Download({ v: 'NnTg4vzli5s' })
 
 ## Events
 
+@todo
+
 `error`
 
 `success`
