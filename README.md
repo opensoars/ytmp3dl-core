@@ -1,4 +1,4 @@
-# ytmp3dl-core (WIP)
+# ytmp3dl-core
 
 Async YouTube downloader - core Node.js module.
 
