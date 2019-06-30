@@ -41,6 +41,11 @@ new Download({ v: 'NnTg4vzli5s' })
   .callMethod('start'); 
 ```
 
+## Events
+
+`error`
+
+`success`
 
 # Up next
 
