@@ -49,6 +49,14 @@ new Download({ v: 'NnTg4vzli5s' })
 
 `success`
 
+`callMethod`
+
+`streamProgress`
+
+`conversionProgress`
+
+
+
 # Up next
 
 * Better `README.md` & examples
