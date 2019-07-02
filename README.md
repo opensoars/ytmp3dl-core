@@ -55,7 +55,15 @@ new Download({ v: 'NnTg4vzli5s' })
 
 `conversionProgress`
 
+Custom event binding:
 
+```js
+const dl = new Download({ v: 'NnTg4vzli5s' });
+
+for (let key in dl._events) dl.on(k, (...args) => {
+  console.log('event', k, args);
+});
+```
 
 # Up next
 
