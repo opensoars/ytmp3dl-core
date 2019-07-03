@@ -84,10 +84,10 @@ module.exports = async function start() {
       return this.start();
     }
 
-    if (err === "res.headers['content-length']) >= 5000 not passed") {
-      console.log('\n\n\nRESTARTING');
-      return this.start();
-    }
+    // if (err === "res.headers['content-length']) >= 5000 not passed") {
+    //   console.log('\n\n\nRESTARTING');
+    //   return this.start();
+    // }
 
     t.pub.error = true;
     t.pub.errs.push(err);
