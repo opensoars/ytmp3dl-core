@@ -79,6 +79,11 @@ module.exports = async function start() {
   } catch (err) {
     console.log('\n\n\n\nERRRRRR', err);
 
+    if (!this.restartCount < 3) {
+      this.restartCount += 1;
+      return this.start();
+    }
+
     if (err === "res.headers['content-length']) >= 5000 not passed") {
       console.log('\n\n\nRESTARTING');
       return this.start();

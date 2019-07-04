@@ -25,6 +25,8 @@ let Download = class Download {
     this.args = ens.obj(args);
     //this.initPub();
 
+    this.restartCount = 0;
+
     this.pub = new Store();
   }
 
