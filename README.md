@@ -16,11 +16,9 @@ This project will be rewritten to use modern features available in recent Node.j
 
 ---
 
-
 # Install
 
 `npm install ytmp3dl-core`
-
 
 # Requirements
 
@@ -38,7 +36,7 @@ new Download({ v: 'NnTg4vzli5s' })
   .on('conversion-progress', prog => console.log('conversion-progress', prog))
   .on('error', err => console.log('error', err))
   .on('succes', result => console.log('succes', result))
-  .callMethod('start'); 
+  .callMethod('start');
 ```
 
 ## Events
@@ -60,25 +58,25 @@ Custom event binding:
 ```js
 const dl = new Download({ v: 'NnTg4vzli5s' });
 
-for (let key in dl._events) dl.on(k, (...args) => {
-  console.log('event', k, args);
-});
+for (let key in dl._events)
+  dl.on(k, (...args) => {
+    console.log('event', k, args);
+  });
 ```
 
 # Up next
 
-* Better `README.md` & examples
-* Better logging
-* Better error handling more try catch
-* Command line interface [ytmp3dl-cli](https://github.com/opensoars/ytmp3dl-cli).
-* REST server [ytmp3dl-server](https://github.com/opensoars/ytmp3dl-server) to CRUD (manage) downloads
-* Front-end features. Which will be maintained in a new project repo.. More info soon. [ytmp3dl-server](https://github.com/opensoars/ytmp3dl-server) will be used in the process of creating user friendly experiences
-
+- Better `README.md` & examples
+- Clean logging
+- Better logging
+- Better error handling more try catch
+- Command line interface [ytmp3dl-cli](https://github.com/opensoars/ytmp3dl-cli).
+- REST server [ytmp3dl-server](https://github.com/opensoars/ytmp3dl-server) to CRUD (manage) downloads
+- Front-end features. Which will be maintained in a new project repo.. More info soon. [ytmp3dl-server](https://github.com/opensoars/ytmp3dl-server) will be used in the process of creating user friendly experiences
 
 # Develop
 
 Previously this project was developed using Babel.js, but since Node.js LTS supports all the features that we were transpiling Babel.js is no longer used. To develop I run `node insta.js`, the `insta.js` file starts downloads when invoked.
-
 
 # Contributing
 
@@ -87,7 +85,6 @@ Previously this project was developed using Babel.js, but since Node.js LTS supp
 3. Commit your changes (git commit -am 'Add epic feature :)')
 4. Push to the branch (git push origin my-epic-feature)
 5. Create new Pull Request
-
 
 # Copyright
 
