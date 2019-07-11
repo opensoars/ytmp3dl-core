@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 const util = require('util');
 const fs = require('fs');
@@ -21,7 +21,6 @@ class Store {
 }
 
 let Download = class Download {
-
   constructor(args) {
     this.args = ens.obj(args);
     //this.initPub();
@@ -61,37 +60,33 @@ let Download = class Download {
       });
     });
   }
-
 };
 
-Download.prototype.initPub = function () {
+Download.prototype.initPub = function() {
   this.pub = {
     d: {}
   };
-  this.pub.get = function (key) {
+  this.pub.get = function(key) {
     if (!key) return this.d;
     return this.d[key];
   };
-  this.pub.set = function () {
+  this.pub.set = function() {
     if (is.object(arguments[0]))
       for (let key in arguments[0])
-        if (arguments[0].hasOwnProperty(key))
-          this.d[key] = arguments[0][key];
+        if (arguments[0].hasOwnProperty(key)) this.d[key] = arguments[0][key];
     if (is.string(arguments[0]) && arguments[1])
       this.d[arguments[0]] = arguments[1];
 
     return this;
   };
-  this.pub.del = function () {
-    if (is.string(arguments[0]))
-      delete this.d[arguments[0]];
+  this.pub.del = function() {
+    if (is.string(arguments[0])) delete this.d[arguments[0]];
     else if (is.array(arguments[0]))
       arguments[0].forEach(el => delete this.d[el]);
 
     return this;
   };
 };
-
 
 [
   'start',
@@ -109,13 +104,9 @@ Download.prototype.initPub = function () {
   'convertFile',
 
   'makeStringFileSafe'
-].forEach(module => 
-  Download.prototype[module] = require('./lib/' + module)
-);
-
+].forEach(module => (Download.prototype[module] = require('./lib/' + module)));
 
 /** Set Download prototype properties */
-
 
 Download.prototype.regexp = {
   /**
@@ -144,11 +135,10 @@ Download.prototype.regexp = {
   /**
    * Note the trailing space.
    * Example (everything between the parentheses is captured)
-   * ... time=(00:00:00.00) 
+   * ... time=(00:00:00.00)
    */
   time: /time=(.+?) /
 };
-
 
 util.inherits(Download, EventEmitter);
 
