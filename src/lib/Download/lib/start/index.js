@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 module.exports = async function start() {
   let t = this;
@@ -12,31 +12,34 @@ module.exports = async function start() {
     });
 
     t.on('stream-progress', streamProgress => t.pub.set({ streamProgress }));
-    t.on('conversion-progress', conversionProgress => t.pub.set({ conversionProgress }));
+    t.on('conversion-progress', conversionProgress =>
+      t.pub.set({ conversionProgress })
+    );
     t.on('callMethod', method => t.pub.methodsCalled.push(method));
 
-    let args = await t.callMethod('validateArguments', t.args)
+    let args = await t.callMethod('validateArguments', t.args);
     let unvalidated_url = await t.callMethod('getUrlFromArguments', args);
     let url = await t.callMethod('validateUrl', unvalidated_url);
     let unvalidated_source = await t.callMethod('getSourceFromUrl', url);
     let source = await t.callMethod('validateSource', unvalidated_source);
-    let ytplayer_config = await t.callMethod('getYtPlayerConfigFromSource',
+    let ytplayer_config = await t.callMethod(
+      'getYtPlayerConfigFromSource',
       unvalidated_source,
       t.regexp.ytplayer_config
     );
 
-    let video_info = await t.callMethod('getVideoInfoFromYtplayerConfig',
+    let video_info = await t.callMethod(
+      'getVideoInfoFromYtplayerConfig',
       ytplayer_config
     );
 
     t.pub.set({ video_info });
 
-    let file_safe_video_title = await t.callMethod('makeStringFileSafe',
+    let file_safe_video_title = await t.callMethod(
+      'makeStringFileSafe',
       video_info.title
     );
-    let fmts = await t.callMethod('getFmtsFromYtplayerConfig',
-      ytplayer_config
-    );
+    let fmts = await t.callMethod('getFmtsFromYtplayerConfig', ytplayer_config);
     let ranked_fmts = await t.callMethod('getRankedFmts', fmts);
 
     // t.pub.set({ ranked_fmts });
@@ -73,8 +76,14 @@ module.exports = async function start() {
       file_name: file_safe_video_title,
       file_ext: t.file_ext
     });
-  }
-  catch (err) {
+  } catch (err) {
+    console.log('\n\n\n\nERRRRRR', err);
+
+    if (err === "res.headers['content-length']) >= 5000 not passed") {
+      console.log('\n\n\nRESTARTING');
+      return this.start();
+    }
+
     t.pub.error = true;
     t.pub.errs.push(err);
     t.emit('error', err);

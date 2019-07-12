@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 const ens = require('ens');
 const is = require('is');
@@ -29,12 +29,14 @@ module.exports = function getRankedFmts(fmts) {
       mp4Fmts.sort(bitrateSorter);
       vidFmts.sort(bitrateSorter);
 
-      const sortedFmts = [...webmFmts, ...mp4Fmts, ...vidFmts];
+      let sortedFmts = [...webmFmts, ...mp4Fmts, ...vidFmts];
+
+      sortedFmts = sortedFmts.filter(fmt => fmt.type.indexOf('video') === -1);
+      console.log(sortedFmts);
 
       resolve(sortedFmts);
-    }
-    catch (err) {
+    } catch (err) {
       reject(err);
     }
   });
-}
+};

@@ -1,8 +1,8 @@
-"use strict";
+'use strict';
 
 const util = require('util');
 const EventEmitter = require('events').EventEmitter;
-const https = require('https'); 
+const https = require('https');
 
 const ens = require('ens');
 const is = require('is');
@@ -15,22 +15,18 @@ const WorkingUrlFinder = class WorkingUrlFinder {
   }
   validateArguments(args) {
     return new Promise((resolve, reject) => {
-      if (!is.object(args))
-        reject('!is.object(args)');
-      else if (!is.object(args.fmt))
-        reject('!is.object(args.fmt)');
+      if (!is.object(args)) reject('!is.object(args)');
+      else if (!is.object(args.fmt)) reject('!is.object(args.fmt)');
       else if (!is.object(args.ytplayer_config))
         reject('!is.object(args.ytplayer_config)');
-      else
-        resolve(args);
+      else resolve(args);
     });
   }
   validateFmt(fmt) {
     return new Promise((resolve, reject) => {
       if (!is.string(fmt.s) && !is.string(fmt.sig) && !is.string(fmt.url))
         reject('No fmt.s || fmt.sig || fmt.url strings present');
-      else
-        resolve (fmt);
+      else resolve(fmt);
     });
   }
   fmtHasSignature(fmt) {
@@ -43,21 +39,29 @@ const WorkingUrlFinder = class WorkingUrlFinder {
         ytplayer_config: args.ytplayer_config,
         signature: args.signature
       })
-        .on('success', (deciphered_signature) => resolve(deciphered_signature))
-        .on('error', (err) => reject(err))
+        .on('success', deciphered_signature => resolve(deciphered_signature))
+        .on('error', err => reject(err))
         .start();
     });
   }
   testUrl(url) {
     return new Promise((resolve, reject) => {
-      https.get(url + '&ratebypass=yes&range=0-1', res => {
-        res.on('data', () => {});
-        res.on('end', () => {
-          parseInt(res.headers['content-length']) === 2
-            ? resolve(url)
-            : reject("res.headers['content-length']) === 2 not passed");
-        });
-      }).on('error', err => reject(err));
+      console.log('testUrlStart');
+      https
+        .get(url + '&ratebypass=yes&range=0-5000', res => {
+          console.log(res.headers);
+          res.on('data', () => {
+            console.log('data');
+          });
+          res.on('end', () => {});
+          res.on('close', () => {
+            console.log('\n\n\nCLOSE\n\n\n');
+            parseInt(res.headers['content-length']) >= 5000
+              ? resolve(url)
+              : reject("res.headers['content-length']) >= 5000 not passed");
+          });
+        })
+        .on('error', err => reject(err));
     });
   }
 };
@@ -67,8 +71,7 @@ WorkingUrlFinder.prototype.start = async function start() {
     let args = await this.validateArguments(this.args);
     let fmt = await this.validateFmt(args.fmt);
 
-    //console.log('@WorkingUrlFinder.start', fmt);
-
+    console.log('@WorkingUrlFinder.start', fmt);
 
     let test_url;
     if (this.fmtHasSignature(fmt)) {
@@ -77,35 +80,76 @@ WorkingUrlFinder.prototype.start = async function start() {
         signature: fmt.s || fmt.sig
       });
 
-      //console.log('deciphered_signature', deciphered_signature);
+      console.log(
+        '@WorkingUrlFinder.start deciphered_signature',
+        deciphered_signature
+      );
 
       test_url = fmt.url + '&sig=' + deciphered_signature;
-    }
-    else if (fmt.url)
-      test_url = fmt.url;
+    } else if (fmt.url) test_url = fmt.url;
 
-    let working_url = await this.testUrl(test_url);
+    //console.log(working_url);
 
-    working_url += '&range=0-11111111111';
+    console.log('@workingUrlFinder.start BEFORE testUrl');
+
+    let working_url;
+
+    working_url = await this.testUrl(test_url);
+
+    // await (() =>
+    //   new Promise(rs => {
+    //     https.get(url + '&ratebypass=yes&range=0-5000', res => {
+    //       res.on('data', () => {});
+    //       res.on('close', rs);
+    //     });
+    //   }));
+
+    // console.log('sleep');
+    // await (() => new Promise(rs => setTimeout(rs, 3333)))();
+    // console.log('sleep done');
+
+    // await (() =>
+    //   new Promise(rs => {
+    //     https.get(url + '&ratebypass=yes&range=0-5000', res => {
+    //       res.on('data', () => {});
+    //       res.on('close', rs);
+    //     });
+    //   }));
+
+    // try {
+    //   working_url = await this.testUrl(test_url);
+    // } catch (err) {
+    //   console.log('inline catch', err);
+
+    //   await (() => new Promise(rs => setTimeout(rs, 1000)))();
+
+    //   working_url = await this.testUrl(test_url);
+
+    //   console.log('working_url', working_url);
+    //   process.exit();
+
+    //   //process.exit();
+    // }
+
+    console.log('@workingUrlFinder.start AFTER testUrl');
 
     //working_url += '&ratebypass=yes';
 
-    //console.log(working_url);
+    working_url += '&range=0-11111111111';
+
+    console.log('working_url', working_url);
     //working_url = working_url.replace('&sparams=', '&sparams=ratebypass,');
 
     this.emit('success', working_url);
-  }
-  catch (err) {
-    this.emit('error @WorkingUrlFinder.start', err);
+  } catch (err) {
+    console.log('REJECT');
+    this.emit('error', err);
   }
 };
 
-
-[
-].forEach(module => 
-  WorkingUrlFinder.prototype[module] = require('./lib/' + module)
+[].forEach(
+  module => (WorkingUrlFinder.prototype[module] = require('./lib/' + module))
 );
-
 
 util.inherits(WorkingUrlFinder, EventEmitter);
 
