@@ -79,7 +79,7 @@ module.exports = async function start() {
   } catch (err) {
     console.log('\n\n\n\nERRRRRR', err);
 
-    if (!this.restartCount < 3) {
+    if (this.restartCount < this.maxRestarts) {
       this.restartCount += 1;
       return this.start();
     }
