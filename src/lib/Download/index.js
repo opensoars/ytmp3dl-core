@@ -26,6 +26,7 @@ let Download = class Download {
     //this.initPub();
 
     this.restartCount = 0;
+    this.maxRestarts = 3;
 
     this.pub = new Store();
   }
