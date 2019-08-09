@@ -1,15 +1,15 @@
-"use strict";
+'use strict';
 
 module.exports = function makeStringFileSafe(str) {
   return new Promise((resolve, reject) => {
     try {
-      resolve(str
-        .replace(/\"/g, "'")
-        .replace(/:/g, ';')
-        .replace(/[\\\/\?\<>\|\*]/g, '')
+      resolve(
+        str
+          .replace(/\"/g, "'")
+          .replace(/:/g, ';')
+          .replace(/[\\\/\?\<>\|\*]/g, '')
       );
-    }
-    catch (err) {
+    } catch (err) {
       reject(err);
     }
   });

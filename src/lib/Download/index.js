@@ -127,7 +127,7 @@ Download.prototype.regexp = {
    * Example (everything between the parentheses is captured)
    * <script> ... ytplayer.config = ({ ... }); ... ;</script>
    */
-  ytplayer_config: /<script.+?>.+?ytplayer.config.+?=.+?(\{.+?\});.+?;<\/script>/,
+  ytplayer_config: /<script.+?>.+?ytplayer.+?=.+?ytplayer.+?\|\|.+?.+?ytplayer.config.+?=.+?(\{.+?\});.+?;<\/script>/,
 
   /**
    * Example (everything between the parentheses is captured)
