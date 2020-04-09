@@ -24,7 +24,7 @@ module.exports = async function start() {
     let source = await t.callMethod('validateSource', unvalidated_source);
     let ytplayer_config = await t.callMethod(
       'getYtPlayerConfigFromSource',
-      unvalidated_source,
+      source,
       t.regexp.ytplayer_config
     );
 
@@ -40,6 +40,8 @@ module.exports = async function start() {
       video_info.title
     );
     let fmts = await t.callMethod('getFmtsFromYtplayerConfig', ytplayer_config);
+    // console.log('fmts', fmts);
+    
     let ranked_fmts = await t.callMethod('getRankedFmts', fmts);
 
     // t.pub.set({ ranked_fmts });
