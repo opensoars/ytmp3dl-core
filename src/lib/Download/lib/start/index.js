@@ -41,7 +41,7 @@ module.exports = async function start() {
     );
     let fmts = await t.callMethod('getFmtsFromYtplayerConfig', ytplayer_config);
     // console.log('fmts', fmts);
-    
+
     let ranked_fmts = await t.callMethod('getRankedFmts', fmts);
 
     // t.pub.set({ ranked_fmts });

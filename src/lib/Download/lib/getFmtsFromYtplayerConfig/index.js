@@ -1,20 +1,17 @@
-"use strict";
+'use strict';
 
 const ens = require('ens');
 const is = require('is');
 const querystring = require('querystring');
 
 module.exports = function getFmtsFromYtplayerConfig(ytplayer_config) {
-
-  
   ytplayer_config = ens.obj(ytplayer_config);
   return new Promise((resolve, reject) => {
     try {
-      if (!ytplayer_config.args)
-        return reject('!ytplayer_config.args');
+      if (!ytplayer_config.args) return reject('!ytplayer_config.args');
 
-
-      let newFmts = JSON.parse(ytplayer_config.args.player_response).streamingData.adaptiveFormats
+      let newFmts = JSON.parse(ytplayer_config.args.player_response)
+        .streamingData.adaptiveFormats;
 
       // else if (!is.string(ytplayer_config.args.adaptive_fmts))
       //   return reject('!is.string(ytplayer_config.args.adaptive_fmts)');
@@ -30,18 +27,22 @@ module.exports = function getFmtsFromYtplayerConfig(ytplayer_config) {
       // console.log('\n\n\n\n\n\n\n\n\n\n', newFmts);
 
       newFmts.forEach(fmt => {
-        const obj = querystring.decode(fmt.cipher);
+        // console.log(fmt);
 
-        fmt.url = obj.url;
-        fmt.s = obj.s;
-        fmt.sp = obj.sp
+        if (fmt.cipher) {
+          const obj = querystring.decode(fmt.cipher);
+          fmt.url = obj.url;
+          fmt.s = obj.s;
+          fmt.sp = obj.sp;
+        }
       });
 
+      // console.log('\n\n\n\n\n\n\n\n\n\n', newFmts);
+
       // console.log(newFmts);
-      
+
       resolve(newFmts);
-    }
-    catch (err) {
+    } catch (err) {
       reject(err);
     }
   });

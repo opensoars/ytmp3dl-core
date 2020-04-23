@@ -30,7 +30,7 @@ class SignatureDecipherer {
       };
 
       https
-        .get(options, function(res) {
+        .get(options, function (res) {
           let source = '';
           res.on('data', chunk => (source += chunk));
           res.on('end', () => resolve(source));

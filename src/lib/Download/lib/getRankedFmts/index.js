@@ -31,7 +31,9 @@ module.exports = function getRankedFmts(fmts) {
 
       let sortedFmts = [...webmFmts, ...mp4Fmts, ...vidFmts];
 
-      sortedFmts = sortedFmts.filter(fmt => fmt.mimeType.indexOf('video') === -1);
+      sortedFmts = sortedFmts.filter(
+        fmt => fmt.mimeType.indexOf('video') === -1
+      );
       // console.log(sortedFmts);
 
       resolve(sortedFmts);

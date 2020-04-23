@@ -65,15 +65,15 @@ let Download = class Download {
   }
 };
 
-Download.prototype.initPub = function() {
+Download.prototype.initPub = function () {
   this.pub = {
     d: {}
   };
-  this.pub.get = function(key) {
+  this.pub.get = function (key) {
     if (!key) return this.d;
     return this.d[key];
   };
-  this.pub.set = function() {
+  this.pub.set = function () {
     if (is.object(arguments[0]))
       for (let key in arguments[0])
         if (arguments[0].hasOwnProperty(key)) this.d[key] = arguments[0][key];
@@ -82,7 +82,7 @@ Download.prototype.initPub = function() {
 
     return this;
   };
-  this.pub.del = function() {
+  this.pub.del = function () {
     if (is.string(arguments[0])) delete this.d[arguments[0]];
     else if (is.array(arguments[0]))
       arguments[0].forEach(el => delete this.d[el]);

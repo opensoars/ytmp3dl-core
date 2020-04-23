@@ -69,7 +69,13 @@ const WorkingUrlFinder = class WorkingUrlFinder {
 WorkingUrlFinder.prototype.start = async function start() {
   try {
     let args = await this.validateArguments(this.args);
-    let fmt = await this.validateFmt(args.fmt);
+
+    console.log(args);
+
+    // return process.exit();
+
+    // let fmt = await this.validateFmt(args.fmt);
+    let fmt = args.fmt;
 
     console.log('@WorkingUrlFinder.start', fmt);
 
