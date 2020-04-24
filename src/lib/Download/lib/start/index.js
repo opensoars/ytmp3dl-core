@@ -71,10 +71,10 @@ module.exports = async function start() {
       length_seconds: video_info.length_seconds
     });
 
-    t.pub.set({ file_location, completed: true });
-
     file_location = file_location.replace(/\.\.mp3$/, '.mp3');
     file_safe_video_title = file_safe_video_title.replace(/\.\.mp3$/, '.mp3');
+
+    t.pub.set({ file_location, completed: true });
 
     this.emit('success', {
       file_location,
