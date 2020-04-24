@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 const https = require('https');
 const fs = require('fs');
@@ -19,34 +19,36 @@ module.exports = function streamFileToTempDir(args) {
 
         resolve(full_loc);
       }
-      let writeStream = fs.createWriteStream(full_loc)
-        .on('error', (err) => endErr('Stream error', err));
+      let writeStream = fs
+        .createWriteStream(full_loc)
+        .on('error', err => endErr('Stream error', err));
 
-      https.get(args.working_url, res => {
-        const stream = res.pipe(writeStream);
-        const contentLength = parseInt(res.headers['content-length']);
+      https
+        .get(args.working_url, res => {
+          const stream = res.pipe(writeStream);
+          const contentLength = parseInt(res.headers['content-length']);
 
-        progress_interval = setInterval(() => {
-          let percentage = stream.bytesWritten / (contentLength / 100);
-          if (percentage > 100) percentage = 100;
-          this.emit('stream-progress', {
-            bytesWritten: stream.bytesWritten,
-            bytesTotal: contentLength,
-            percentage: percentage
+          progress_interval = setInterval(() => {
+            let percentage = stream.bytesWritten / (contentLength / 100);
+            if (percentage > 100) percentage = 100;
+            this.emit('stream-progress', {
+              bytesWritten: stream.bytesWritten,
+              bytesTotal: contentLength,
+              percentage: percentage
+            });
+          }, 500);
+
+          res.on('end', () => {
+            this.emit('stream-progress', {
+              bytesWritten: stream.bytesWritten,
+              bytesTotal: contentLength,
+              percentage: 100
+            });
+            end();
           });
-        }, 2000);
-
-        res.on('end', () => {
-          this.emit('stream-progress', {
-            bytesWritten: stream.bytesWritten,
-            bytesTotal: contentLength,
-            percentage: 100
-          });
-          end();
-        });
-      }).on('error', (err) => endErr('https.get error'));
-    }
-    catch (err) {
+        })
+        .on('error', err => endErr('https.get error'));
+    } catch (err) {
       reject(err);
     }
   });
