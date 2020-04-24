@@ -1,7 +1,7 @@
 {
   "name": "ytmp3dl-core",
   "description": "Youtube mp3 downloader - core module",
-  "version": "0.0.22",
+  "version": "0.0.23",
   "author": "opensoars",
   "scripts": {
     "test": "node index.js"

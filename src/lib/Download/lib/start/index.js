@@ -81,6 +81,8 @@ module.exports = async function start() {
   } catch (err) {
     console.log('\n\n\n\nERRRRRR', err);
 
+    t.pub.errs.push(err);
+
     if (this.restartCount < this.maxRestarts) {
       this.restartCount += 1;
       return this.start();
