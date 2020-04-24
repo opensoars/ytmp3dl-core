@@ -19,7 +19,9 @@ module.exports = function getWorkingUrl(args) {
         ytplayer_config
       });
       attempt.on('error', err => attemptWorkIngUrlFinder(err));
-      attempt.on('success', working_url => resolve(working_url));
+      attempt.on('success', working_url =>
+        resolve(working_url + '&ratebypass=yes')
+      );
       attempt_i++;
       attempt.start();
     })();
