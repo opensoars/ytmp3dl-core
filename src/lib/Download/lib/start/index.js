@@ -94,7 +94,7 @@ module.exports = async function start() {
     // }
 
     t.pub.error = true;
-    t.pub.errs.push(err);
+
     t.emit('error', err);
   }
 };
