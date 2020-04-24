@@ -12,7 +12,7 @@ module.exports = function getWorkingUrl(args) {
 
     let attempt_i = 0;
     (function attemptWorkIngUrlFinder(err) {
-      console.log(attempt_i, ranked_fmts.length);
+      // console.log(attempt_i, ranked_fmts.length);
       if (attempt_i === ranked_fmts.length) return reject(err);
       let attempt = new WorkingUrlFinder({
         fmt: ranked_fmts[attempt_i],

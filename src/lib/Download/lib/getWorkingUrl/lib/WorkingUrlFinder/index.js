@@ -46,16 +46,16 @@ const WorkingUrlFinder = class WorkingUrlFinder {
   }
   testUrl(url) {
     return new Promise((resolve, reject) => {
-      console.log('testUrlStart');
+      // console.log('testUrlStart');
       https
         .get(url + '&ratebypass=yes&range=0-5000', res => {
-          console.log(res.headers);
+          // console.log(res.headers);
           res.on('data', () => {
-            console.log('data');
+            // console.log('data');
           });
           res.on('end', () => {});
           res.on('close', () => {
-            console.log('\n\n\nCLOSE\n\n\n');
+            // console.log('\n\n\nCLOSE\n\n\n');
             parseInt(res.headers['content-length']) >= 5000
               ? resolve(url)
               : reject("res.headers['content-length']) >= 5000 not passed");
@@ -70,14 +70,14 @@ WorkingUrlFinder.prototype.start = async function start() {
   try {
     let args = await this.validateArguments(this.args);
 
-    console.log(args);
+    // console.log(args);
 
     // return process.exit();
 
     // let fmt = await this.validateFmt(args.fmt);
     let fmt = args.fmt;
 
-    console.log('@WorkingUrlFinder.start', fmt);
+    // console.log('@WorkingUrlFinder.start', fmt);
 
     let test_url;
     if (this.fmtHasSignature(fmt)) {
@@ -86,17 +86,17 @@ WorkingUrlFinder.prototype.start = async function start() {
         signature: fmt.s || fmt.sig
       });
 
-      console.log(
-        '@WorkingUrlFinder.start deciphered_signature',
-        deciphered_signature
-      );
+      // console.log(
+      //   '@WorkingUrlFinder.start deciphered_signature',
+      //   deciphered_signature
+      // );
 
       test_url = fmt.url + '&sig=' + deciphered_signature;
     } else if (fmt.url) test_url = fmt.url;
 
     //console.log(working_url);
 
-    console.log('@workingUrlFinder.start BEFORE testUrl');
+    // console.log('@workingUrlFinder.start BEFORE testUrl');
 
     let working_url;
 
@@ -137,18 +137,18 @@ WorkingUrlFinder.prototype.start = async function start() {
     //   //process.exit();
     // }
 
-    console.log('@workingUrlFinder.start AFTER testUrl');
+    // console.log('@workingUrlFinder.start AFTER testUrl');
 
     //working_url += '&ratebypass=yes';
 
     working_url += '&range=0-11111111111';
 
-    console.log('working_url', working_url);
+    // console.log('working_url', working_url);
     //working_url = working_url.replace('&sparams=', '&sparams=ratebypass,');
 
     this.emit('success', working_url);
   } catch (err) {
-    console.log('REJECT');
+    // console.log('REJECT');
     this.emit('error', err);
   }
 };

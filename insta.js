@@ -14,8 +14,8 @@ let vs = [
 
   'Owbd9lvNM2Q', */
 
-  // 'sQVeK7Dt18U'
-  'NnTg4vzli5s'
+  'sQVeK7Dt18U'
+  // 'NnTg4vzli5s'
   // 'qoOCBMqxA3g'
   // 'RaY4Rg-2sBA'
   // 'kYW4goj0mxE'
@@ -27,8 +27,8 @@ vs.forEach(v => {
   let dl = new ytmp3dl.Download({ v });
 
   dl.on('error', err => {
-    console.log('error', err);
-    console.log(err.stack);
+    // console.log('error', err);
+    // console.log(err.stack);
   });
 
   dl.on('success', result => {
@@ -41,24 +41,25 @@ vs.forEach(v => {
       file_ext: result.file_ext,
       output
     });
-    console.log('success', result);
+    // console.log('success', result);
+    // console.log('success');
 
-    console.log(dl.pub);
+    // console.log(dl.pub);
   });
 
   dl.on('callMethod', method => {
-    console.log('callMethod', method);
+    // console.log('callMethod', method);
   });
 
   dl.on('stream-progress', o => {
-    console.log('stream-progress', o);
+    // console.log('stream-progress', o);
   });
 
   dl.on('conversion-progress', o => {
-    console.log('conversion-progress', o);
+    // console.log('conversion-progress', o);
   });
 
   dl.start();
 
-  console.log('dl', dl);
+  // console.log('dl', dl);
 });

@@ -53,10 +53,11 @@ let Download = class Download {
   static copyAndClean(args) {
     return new Promise((resolve, reject) => {
       fs.readFile(args.result_file_location, (err, file) => {
-        fs.writeFile(args.output, file, err => {
+        fs.writeFile(args.output.replace(/\.\.mp3$/, '.mp3'), file, err => {
           if (err) reject(err);
           fs.unlink(args.result_file_location, err => {
             if (err) reject(err);
+
             fs.unlink(
               args.result_file_location.replace(args.file_ext, ''),
               err => {
