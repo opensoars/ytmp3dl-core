@@ -3,6 +3,7 @@
 const util = require('util');
 const EventEmitter = require('events').EventEmitter;
 const https = require('https');
+const querystring = require('querystring');
 
 const ens = require('ens');
 const is = require('is');
@@ -30,7 +31,9 @@ const WorkingUrlFinder = class WorkingUrlFinder {
     });
   }
   fmtHasSignature(fmt) {
-    return is.string(fmt.s) || is.string(fmt.sig);
+    return (
+      is.string(fmt.s) || is.string(fmt.sig) || is.string(fmt.signatureCipher)
+    );
   }
   decipherSignature(args) {
     args = ens.obj(args);
@@ -39,8 +42,8 @@ const WorkingUrlFinder = class WorkingUrlFinder {
         ytplayer_config: args.ytplayer_config,
         signature: args.signature
       })
-        .on('success', deciphered_signature => resolve(deciphered_signature))
-        .on('error', err => reject(err))
+        .on('success', (deciphered_signature) => resolve(deciphered_signature))
+        .on('error', (err) => reject(err))
         .start();
     });
   }
@@ -48,7 +51,7 @@ const WorkingUrlFinder = class WorkingUrlFinder {
     return new Promise((resolve, reject) => {
       // console.log('testUrlStart');
       https
-        .get(url + '&ratebypass=yes&range=0-5000', res => {
+        .get(url + '&ratebypass=yes&range=0-5000', (res) => {
           // console.log(res.headers);
           res.on('data', () => {
             // console.log('data');
@@ -61,7 +64,7 @@ const WorkingUrlFinder = class WorkingUrlFinder {
               : reject("res.headers['content-length']) >= 5000 not passed");
           });
         })
-        .on('error', err => reject(err));
+        .on('error', (err) => reject(err));
     });
   }
 };
@@ -78,6 +81,12 @@ WorkingUrlFinder.prototype.start = async function start() {
     let fmt = args.fmt;
 
     // console.log('@WorkingUrlFinder.start', fmt);
+    if (fmt.signatureCipher) {
+      const queryStringArgs = querystring.parse(fmt.signatureCipher);
+
+      fmt.url = queryStringArgs.url;
+      fmt.s = queryStringArgs.s;
+    }
 
     let test_url;
     if (this.fmtHasSignature(fmt)) {
@@ -154,7 +163,7 @@ WorkingUrlFinder.prototype.start = async function start() {
 };
 
 [].forEach(
-  module => (WorkingUrlFinder.prototype[module] = require('./lib/' + module))
+  (module) => (WorkingUrlFinder.prototype[module] = require('./lib/' + module))
 );
 
 util.inherits(WorkingUrlFinder, EventEmitter);

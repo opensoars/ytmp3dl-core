@@ -4,7 +4,7 @@ const ytmp3dl = require('./src/index.js');
 
 let dls = [];
 let vs = [
-  // 'NnTg4vzli5s'
+  'NnTg4vzli5s'
   /*  'sQVeK7Dt18U',
   'kqq_oq6QWZI',
   'd0TX75q6Y1M',
@@ -14,7 +14,7 @@ let vs = [
 
   'Owbd9lvNM2Q', */
 
-  'sQVeK7Dt18U'
+  // 'sQVeK7Dt18U'
   // 'NnTg4vzli5s'
   // 'qoOCBMqxA3g'
   // 'RaY4Rg-2sBA'
@@ -23,15 +23,15 @@ let vs = [
 
 ytmp3dl.cleanTemp();
 
-vs.forEach(v => {
+vs.forEach((v) => {
   let dl = new ytmp3dl.Download({ v });
 
-  dl.on('error', err => {
+  dl.on('error', (err) => {
     // console.log('error', err);
     // console.log(err.stack);
   });
 
-  dl.on('success', result => {
+  dl.on('success', (result) => {
     const outDir = __dirname + '/done';
     const fileName = result.file_name + '.' + result.file_ext;
     const output = outDir + '/' + fileName;
@@ -47,15 +47,15 @@ vs.forEach(v => {
     // console.log(dl.pub);
   });
 
-  dl.on('callMethod', method => {
+  dl.on('callMethod', (method) => {
     // console.log('callMethod', method);
   });
 
-  dl.on('stream-progress', o => {
+  dl.on('stream-progress', (o) => {
     // console.log('stream-progress', o);
   });
 
-  dl.on('conversion-progress', o => {
+  dl.on('conversion-progress', (o) => {
     // console.log('conversion-progress', o);
   });
 
