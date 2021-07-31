@@ -71,7 +71,13 @@ const WorkingUrlFinder = class WorkingUrlFinder {
               if (parseInt(res.headers['content-length']) >= 5000) {
                 return resolve(url);
               } else {
-                reject("res.headers['content-length']) >= 5000 not passed");
+                if (tries < 5) {
+                  return get();
+                } else {
+                  return reject(
+                    "res.headers['content-length']) >= 5000 not passed"
+                  );
+                }
               }
             });
           })
