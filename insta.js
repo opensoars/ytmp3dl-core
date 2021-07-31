@@ -22,8 +22,6 @@ let vs = [
 ytmp3dl.cleanTemp();
 
 vs.forEach((v, i) => {
-  if (i !== 8) return;
-
   let dl = new ytmp3dl.Download({ v });
 
   dl.on('error', err => {
