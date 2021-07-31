@@ -8,6 +8,7 @@ const ens = require('ens');
 const is = require('is');
 
 const SignatureDecipherer = require('./lib/SignatureDecipherer');
+const { get } = require('http');
 
 const WorkingUrlFinder = class WorkingUrlFinder {
   constructor(args) {
@@ -37,7 +38,8 @@ const WorkingUrlFinder = class WorkingUrlFinder {
     return new Promise((resolve, reject) => {
       new SignatureDecipherer({
         ytplayer_config: args.ytplayer_config,
-        signature: args.signature
+        signature: args.signature,
+        source: args.source
       })
         .on('success', deciphered_signature => resolve(deciphered_signature))
         .on('error', err => reject(err))
@@ -47,21 +49,36 @@ const WorkingUrlFinder = class WorkingUrlFinder {
   testUrl(url) {
     return new Promise((resolve, reject) => {
       // console.log('testUrlStart');
-      https
-        .get(url + '&ratebypass=yes&range=0-5000', res => {
-          // console.log(res.headers);
-          res.on('data', () => {
-            // console.log('data');
-          });
-          res.on('end', () => {});
-          res.on('close', () => {
-            // console.log('\n\n\nCLOSE\n\n\n');
-            parseInt(res.headers['content-length']) >= 5000
-              ? resolve(url)
-              : reject("res.headers['content-length']) >= 5000 not passed");
-          });
-        })
-        .on('error', err => reject(err));
+
+      let tries = 0;
+
+      const get = () => {
+        https
+          .get(url + '&ratebypass=yes&range=0-5100', res => {
+            tries++;
+            if (res.statusCode !== 200 && tries < 5) {
+              return get();
+            }
+
+            // console.log(res.headers);
+            res.on('data', () => {
+              // console.log('data');
+            });
+            res.on('end', () => {});
+            res.on('close', () => {
+              // console.log('\n\n\nCLOSE\n\n\n');
+
+              if (parseInt(res.headers['content-length']) >= 5000) {
+                return resolve(url);
+              } else {
+                reject("res.headers['content-length']) >= 5000 not passed");
+              }
+            });
+          })
+          .on('error', err => reject(err));
+      };
+
+      get();
     });
   }
 };
@@ -83,7 +100,8 @@ WorkingUrlFinder.prototype.start = async function start() {
     if (this.fmtHasSignature(fmt)) {
       let deciphered_signature = await this.decipherSignature({
         ytplayer_config: args.ytplayer_config,
-        signature: fmt.s || fmt.sig
+        signature: fmt.s || fmt.sig,
+        source: args.source
       });
 
       // console.log(

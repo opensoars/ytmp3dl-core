@@ -5,25 +5,25 @@ const ytmp3dl = require('./src/index.js');
 let dls = [];
 let vs = [
   // 'NnTg4vzli5s'
-  /*  'sQVeK7Dt18U',
   'kqq_oq6QWZI',
   'd0TX75q6Y1M',
 
-   'lFMkAdg0E-Q',
+  'lFMkAdg0E-Q',
   'RaY4Rg-2sBA',
 
-  'Owbd9lvNM2Q', */
+  'Owbd9lvNM2Q',
 
-  'sQVeK7Dt18U'
-  // 'NnTg4vzli5s'
-  // 'qoOCBMqxA3g'
-  // 'RaY4Rg-2sBA'
-  // 'kYW4goj0mxE'
+  'sQVeK7Dt18U',
+  'NnTg4vzli5s',
+  'qoOCBMqxA3g',
+  'kYW4goj0mxE'
 ];
 
 ytmp3dl.cleanTemp();
 
-vs.forEach(v => {
+vs.forEach((v, i) => {
+  if (i !== 8) return;
+
   let dl = new ytmp3dl.Download({ v });
 
   dl.on('error', err => {

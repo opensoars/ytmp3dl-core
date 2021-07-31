@@ -19,14 +19,18 @@ module.exports = async function start() {
 
     let args = await t.callMethod('validateArguments', t.args);
     let unvalidated_url = await t.callMethod('getUrlFromArguments', args);
+
     let url = await t.callMethod('validateUrl', unvalidated_url);
     let unvalidated_source = await t.callMethod('getSourceFromUrl', url);
     let source = await t.callMethod('validateSource', unvalidated_source);
+
     let ytplayer_config = await t.callMethod(
       'getYtPlayerConfigFromSource',
       source,
       t.regexp.ytplayer_config
     );
+
+    // console.log('ytplayer_config', ytplayer_config);
 
     let video_info = await t.callMethod(
       'getVideoInfoFromYtplayerConfig',
@@ -48,7 +52,8 @@ module.exports = async function start() {
 
     let working_url = await t.callMethod('getWorkingUrl', {
       ranked_fmts,
-      ytplayer_config
+      ytplayer_config,
+      source
     });
 
     t.pub.set({ working_url });

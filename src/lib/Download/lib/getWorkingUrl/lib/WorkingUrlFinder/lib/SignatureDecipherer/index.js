@@ -114,6 +114,15 @@ SignatureDecipherer.prototype.start = async function start() {
   let t = this;
   try {
     let args = await t.validateArguments(t.args);
+
+    // player url no longer found in ytplayer_config.assets so extracting it from source now
+    const urlMatches = args.source.match(this.regexp.playerUrl);
+    args.ytplayer_config.assets = {
+      js: urlMatches[1]
+    };
+
+    // await new Promise(rs => setTimeout(rs, 1000000));
+
     let jsplayer_url = 'https://youtube.com' + args.ytplayer_config.assets.js;
     let unvalidated_jsplayer = await t.getJsPlayerFromUrl(jsplayer_url);
     let jsplayer = await t.validateJsPlayer(unvalidated_jsplayer);
@@ -199,7 +208,9 @@ SignatureDecipherer.prototype.regexp = {
   /**
    *
    */
-  decipher_helpers_body: '=\\{([\\w\\W\\.\\:]+?)\\};'
+  decipher_helpers_body: '=\\{([\\w\\W\\.\\:]+?)\\};',
+
+  playerUrl: /\"PLAYER_JS_URL\":\s?\"(.+?)\"/
 };
 
 util.inherits(SignatureDecipherer, EventEmitter);
