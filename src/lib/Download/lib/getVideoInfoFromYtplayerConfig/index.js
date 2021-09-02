@@ -5,10 +5,10 @@ const fs = require('fs');
 module.exports = function getVideoInfoFromYtplayerConfig(ytplayer_config) {
   return new Promise((resolve, reject) => {
     try {
-      fs.writeFileSync(
-        '/home/s/dev/outs/ytplayer_config.json',
-        JSON.stringify(ytplayer_config, null, 2)
-      );
+      // fs.writeFileSync(
+      //   '/home/s/dev/outs/ytplayer_config.json',
+      //   JSON.stringify(ytplayer_config, null, 2)
+      // );
       // let ytp_args = JSON.parse(ytplayer_config);
 
       resolve({
