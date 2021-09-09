@@ -41,8 +41,6 @@ new Download({ v: 'NnTg4vzli5s' })
 
 ## Events
 
-@todo
-
 `error`
 
 `success`
@@ -53,14 +51,24 @@ new Download({ v: 'NnTg4vzli5s' })
 
 `conversionProgress`
 
+Example:
+
+```js
+const dl = new Download({ v: 'NnTg4vzli5s' });
+
+dl.on('conversionProgress', progress =>
+  console.log('conversionProgress', progress)
+);
+```
+
 Custom event binding:
 
 ```js
 const dl = new Download({ v: 'NnTg4vzli5s' });
 
-for (let key in dl._events)
-  dl.on(k, (...args) => {
-    console.log('event', k, args);
+for (let eventName in dl._events)
+  dl.on(eventName, (...args) => {
+    console.log('event', eventName, args);
   });
 ```
 
