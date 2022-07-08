@@ -4,19 +4,25 @@ const ytmp3dl = require('./src/index.js');
 
 let dls = [];
 let vs = [
+  // Causes issue with `copyAndClean`
+  // 'DcCzv6M-kic'
+
+  // 30 Seconds
+  'M-mtdN6R3bQ'
+
   // 'NnTg4vzli5s'
-  'kqq_oq6QWZI',
-  'd0TX75q6Y1M',
+  // 'kqq_oq6QWZI',
+  // 'd0TX75q6Y1M',
 
-  'lFMkAdg0E-Q',
-  'RaY4Rg-2sBA',
+  // 'lFMkAdg0E-Q',
+  // 'RaY4Rg-2sBA',
 
-  'Owbd9lvNM2Q',
+  // 'Owbd9lvNM2Q',
 
-  'sQVeK7Dt18U',
-  'NnTg4vzli5s',
-  'qoOCBMqxA3g',
-  'kYW4goj0mxE'
+  // 'sQVeK7Dt18U',
+  // 'NnTg4vzli5s',
+  // 'qoOCBMqxA3g',
+  // 'kYW4goj0mxE'
 ];
 
 ytmp3dl.cleanTemp();
