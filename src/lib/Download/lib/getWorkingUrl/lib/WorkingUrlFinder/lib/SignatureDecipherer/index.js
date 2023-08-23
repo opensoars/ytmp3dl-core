@@ -67,9 +67,9 @@ class SignatureDecipherer {
     return new Promise((resolve, reject) => {
       let matches = decipher_argument_re.exec(jsplayer);
 
-      const fs = require('fs');
-      fs.writeFileSync(`${process.cwd()}/temp/jsplayer.js`, jsplayer);
-      console.log('decipher_argument_re', decipher_argument_re);
+      // const fs = require('fs');
+      // fs.writeFileSync(`${process.cwd()}/temp/jsplayer.js`, jsplayer);
+      // console.log('decipher_argument_re', decipher_argument_re);
 
       if (is.array(matches) && matches[1]) resolve(matches[1]);
       else reject('@argument is.array(matches) && matches[1] not passed');
