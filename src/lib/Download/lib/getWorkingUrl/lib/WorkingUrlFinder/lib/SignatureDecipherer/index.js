@@ -32,10 +32,10 @@ class SignatureDecipherer {
       https
         .get(options, function (res) {
           let source = '';
-          res.on('data', (chunk) => (source += chunk));
+          res.on('data', chunk => (source += chunk));
           res.on('end', () => resolve(source));
         })
-        .on('error', (err) => {
+        .on('error', err => {
           reject(err);
         });
     });
@@ -52,7 +52,13 @@ class SignatureDecipherer {
       for (let i = 0; i < decipher_function_name_res.length; i++) {
         let re = decipher_function_name_res[i];
         let matches = re.exec(jsplayer);
-        if (is.array(matches) && matches[1]) return resolve(matches[1]);
+        if (is.array(matches) && matches[1]) {
+          // Fixes to getting the correct decipher_name
+          let decipher_name = matches[1];
+          decipher_name = decipher_name.replace(/^\$/, '\\$');
+          decipher_name = decipher_name.replace(' ', '');
+          return resolve(decipher_name);
+        }
       }
       reject('@name could not get name from js player');
     });
@@ -60,6 +66,10 @@ class SignatureDecipherer {
   getDecipherArgumentFromJsPlayer(jsplayer, decipher_argument_re) {
     return new Promise((resolve, reject) => {
       let matches = decipher_argument_re.exec(jsplayer);
+
+      const fs = require('fs');
+      fs.writeFileSync(`${process.cwd()}/temp/jsplayer.js`, jsplayer);
+      console.log('decipher_argument_re', decipher_argument_re);
 
       if (is.array(matches) && matches[1]) resolve(matches[1]);
       else reject('@argument is.array(matches) && matches[1] not passed');
@@ -133,8 +143,6 @@ SignatureDecipherer.prototype.start = async function start() {
       jsplayer,
       t.regexp.decipher_names
     );
-
-    decipher_name = decipher_name.replace(' ', '');
 
     //console.log('@SignatureDecipherer.start: got decipher_name:', decipher_name);
 
