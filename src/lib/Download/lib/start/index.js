@@ -87,7 +87,7 @@ module.exports = async function start() {
       file_ext: t.file_ext
     });
   } catch (err) {
-    console.log('\n\n\n\nERRRRRR', err);
+    console.log('\n\n\n\nERRRRRR', err, 'dl:', t);
 
     t.pub.errs.push(err);
 

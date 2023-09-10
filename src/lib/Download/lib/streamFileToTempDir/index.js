@@ -59,7 +59,7 @@ module.exports = function streamFileToTempDir(args) {
               end();
             });
           })
-          .on('error', err => endErr('https.get error'));
+          .on('error', err => endErr('https.get error: ' + err.message));
       };
       get();
     } catch (err) {
