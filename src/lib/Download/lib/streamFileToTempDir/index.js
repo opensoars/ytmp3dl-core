@@ -12,10 +12,14 @@ module.exports = function streamFileToTempDir(args) {
 
       function endErr(err_msg, err) {
         clearInterval(progress_interval);
+        clearInterval(noDataCheckInterval);
         reject(err_msg);
       }
       function end() {
         clearInterval(progress_interval);
+        clearInterval(noDataCheckInterval);
+
+        writeStream.close();
 
         resolve(full_loc);
       }
@@ -24,6 +28,8 @@ module.exports = function streamFileToTempDir(args) {
         .on('error', err => endErr('Stream error', err));
 
       let tries = 0;
+
+      let noDataCheckInterval;
 
       const get = () => {
         https
@@ -46,7 +52,22 @@ module.exports = function streamFileToTempDir(args) {
               });
             }, 500);
 
+            let lastDataTime = Date.now();
+
+            res.on('data', () => {
+              const now = Date.now();
+              lastDataTime = now;
+            });
+
+            noDataCheckInterval = setInterval(() => {
+              if (Date.now() - lastDataTime > 30000) {
+                console.log('noDataCheckInterval');
+                endErr('noDataCheckInterval: now - lastDataTime > 30000');
+              }
+            }, 100);
+
             res.on('end', () => {
+              clearInterval(noDataCheckInterval);
               if (stream.bytesWritten === 0) {
                 return get();
               }
